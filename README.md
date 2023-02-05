@@ -1,23 +1,25 @@
-# StudyBuddyUBC
+# Workout Creator
 
 ## Project Overview
 
-StudyBuddyUBC is the ultimate tool for optimizing your study experience.
-StudyBuddyUBC provides ubc students with a platform to make studying a social experience.
+With the workout plan creator, creating, sharing and finding the perfect 
+workout for you has never been easier. With Workout Creator makes it easier than ever to 
+create your own workout regiments. 
 
-StudyBuddyUBC allows users to 
+Workout Creator allows you to...
+- **Choose** and **customize** pre-made schedule templates or **create** your
+  own 
+- **Add** what muscle groups your hitting on what day
+- **Log** and **track** your workout history and PR's
 
-- **share**, **rate** and **track** of their favourites study spots on campus 
-- **Connect** users with potential study **partners** and/or **groups**
-- **log** their study hours and tasks.
-
-This project is of personal interest to me, as I love studying with my friends and trying new study spots.
+This project is of personal interest to me, as 
+i'm trying to get into working out more.
 
 
 ## User Stories
 
-- As a user I want to be able to save a Study Spot to my favourites
-- As a user I want to be able to update my study log
-- As a user I want to be able to browse study spots on campus
-- As a user I want to be able to see where my friends are studying
+- As a user I want to be able to add an exercise to my workout
+- As a user I want to be able to update my workout log and track my PR's
+- As a user I want to be able to browse different exercises for different muscle groups
+- As a user I want to be able to choose templates from a list of workout genres
 
