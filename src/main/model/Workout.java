@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Workout {
@@ -7,17 +8,22 @@ public class Workout {
     private List exercises;
 
 
-    public Workout(){
-
+    //EFFECTS initializes exercises with an empty list
+    public Workout(String workoutGoal) {
+        this.workoutGoal = workoutGoal;
+        exercises = new ArrayList<Exercise>();
     }
 
     //EFFECTS: adds an exercise to list of exercises
-    public void add(){
+    public void add(Exercise exercise){
 
     }
 
+    //EFFECTS: change workout goal
+    public void changeGoal(String goal) {}
+
     //EFFECTS: removes an exercise
-    public void remove(){}
+    public void remove(Exercise exercise){}
 
     //EFFECTS: browse a list of exercises to choose from
     private Exercise choose() {
