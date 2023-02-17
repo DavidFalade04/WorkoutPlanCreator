@@ -1,7 +1,5 @@
 package model;
 
-import java.util.List;
-
 public class Day {
     private final String name;
     private String status;
@@ -12,13 +10,19 @@ public class Day {
     //EFFECTS: creates a day with a name with default status rest
     public Day(String name) {
         this.name = name;
+        this.status = "rest";
     }
 
-    //EFFECTS: adds a workout
-    public void add(){}
+    //EFFECTS: sets the day's workout
+    //         if there's already a workout
+    public void setWorkout(Workout workout) {
+        this.workout = workout;
+    }
 
     //EFFECTS: removes workout
-    public void remove(){}
+    public void removeWorkout() {
+        this.workout = null;
+    }
 
 
     public String getStatus() {
@@ -27,5 +31,14 @@ public class Day {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    //EFFECTS:
+    public Workout getWorkout() {
+        return workout;
     }
 }
