@@ -34,6 +34,7 @@ public class ExerciseTest {
     }
 
 
+    @Test
     public void changeNameTest() {
 
         assertEquals(e1Name,exercise1.getName());
