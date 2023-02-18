@@ -16,8 +16,6 @@ public class WorkoutTest {
 
     @BeforeEach
     public void setup() {
-        muscleGroups.add(biceps);
-        muscleGroups.add(chest);
         workout = new Workout("chest");
     }
 

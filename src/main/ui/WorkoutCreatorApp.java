@@ -73,7 +73,31 @@ public class WorkoutCreatorApp {
                 displayMainMenu();
             }
 
+        } else if (command.equals("l")) {
+            loadPlans();
         }
+    }
+
+    private void loadPlans() {
+        if (plans.isEmpty()) {
+            System.out.println("No plans created yet");
+            System.out.println("going back to menu...");
+            return;
+        }
+        System.out.println("\nChoose a saved plan:");
+        int index = 0;
+        for (WorkoutPlan workoutPlan : plans) {
+            System.out.println("\t" + index + ": " + workoutPlan.getName());
+            index++;
+        }
+        System.out.print("enter slot number: ");
+        index = input.nextInt();
+        if (index < plans.size()) {
+            viewPlan(plans.get(index));
+        } else {
+            loadPlans();
+        }
+
     }
 
     //REQUIRES: valid day entered
@@ -119,9 +143,9 @@ public class WorkoutCreatorApp {
             System.out.print("workout goal: ");
             workout.changeGoal(input.next());
             day.setWorkout(workout);
-            editWorkout(day.getWorkout());
+            editWorkout(day.getWorkout(), day);
         } else if (command.contains("e")) {
-            editWorkout(workout);
+            editWorkout(workout, day);
         } else if (command.equals("v")) {
             if (workout == null) {
                 System.out.println("no exercises :(");
@@ -137,19 +161,24 @@ public class WorkoutCreatorApp {
     private void displayExercises(Workout workout) {
         List<Exercise> exercises = workout.getExercises();
         for (Exercise e : exercises) {
-            System.out.println("\n name: +" + e.getName());
-            System.out.println("\t sets: " + e.getSets());
-            System.out.println("\t reps: " + e.getReps());
-            System.out.println("\t pr: " + e.getPr());
+            displayExercise(e);
         }
+    }
+
+    private void displayExercise(Exercise e) {
+        System.out.println("\n name: " + e.getName());
+        System.out.println("\t sets: " + e.getSets());
+        System.out.println("\t reps: " + e.getReps());
+        System.out.println("\t pr: " + e.getPr());
     }
 
     //REQUIRES: workout should not be null
     //MODIFIES: this
     //EFFECTS: edits workouts
-    private void editWorkout(Workout workout) {
+    private void editWorkout(Workout workout, Day day) {
         System.out.println("c -> change goal");
         System.out.println("a -> add exercises");
+        System.out.println("b -> back");
         String command = input.next();
 
         if (command.equals("c")) {
@@ -157,9 +186,22 @@ public class WorkoutCreatorApp {
             workout.changeGoal(goal);
         } else if (command.equals("a")) {
             Exercise exercise = browse();
+            editExercise(exercise);
             workout.add(exercise);
-
+            editWorkout(workout, day);
+        } else if (command.equals("b")) {
+            dayViewer(day);
         }
+    }
+
+    private void editExercise(Exercise exercise) {
+        displayExercise(exercise);
+
+        System.out.print("\n# of sets: ");
+        exercise.setSets(input.nextInt());
+        System.out.print("# of reps: ");
+        exercise.setReps(input.nextInt());
+
     }
 
     //EFFECTS: browses collection of exercises
@@ -189,7 +231,7 @@ public class WorkoutCreatorApp {
             System.out.println(index + ": " + e.getName());
             index++;
         }
-        System.out.print("enter the number of the exercise you would like to select");
+        System.out.print("enter the number of the exercise you would like to select: ");
         index = input.nextInt();
 
         if (index < exercises.size()) {
@@ -251,8 +293,9 @@ public class WorkoutCreatorApp {
     //MODIFIES: this
     //EFFECTS: creates a workout plan and saves it to plans
     private WorkoutPlan createWorkoutPlan() {
-        System.out.println("provide a name for you new plan");
+        System.out.print("Workout plan name: ");
         String name = input.next();
+        initDefaultDays();
         WorkoutPlan workoutplan = new WorkoutPlan(name, defaultDays);
         plans.add(workoutplan);
         System.out.println("workout plan: " + name + " created");
@@ -264,7 +307,6 @@ public class WorkoutCreatorApp {
     //EFFECTS: initializes workout creator app
     private void init() throws FileNotFoundException {
         initMuscleGroups();
-        initDefaultDays();
         //NOTE: extracted from teller app
         input = new Scanner(System.in);
         input.useDelimiter("\n");
@@ -283,6 +325,7 @@ public class WorkoutCreatorApp {
         dayNames.add("saturday");
         dayNames.add("sunday");
 
+        defaultDays = new ArrayList<>();
         for (String dayName : dayNames) {
             Day day = new Day(dayName);
             defaultDays.add(day);
