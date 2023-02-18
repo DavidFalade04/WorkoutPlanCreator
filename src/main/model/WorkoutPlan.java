@@ -2,6 +2,7 @@ package model;
 
 import java.util.List;
 
+// A weekly workout plan that outlines what day workouts are on, are what days are rest days
 public class WorkoutPlan {
 
     private String name;
@@ -9,7 +10,7 @@ public class WorkoutPlan {
 
 
     //EFFECTS: names the workout plan, and sets the days of the weeks
-    public WorkoutPlan(String name, List days) {
+    public WorkoutPlan(String name, List<Day> days) {
         this.name = name;
         this.days = days;
     }

@@ -1,5 +1,6 @@
 package model;
 
+// An exercise with a name, and a number of reps and sets, as well as a Pr
 public class Exercise {
     private String name;
     private int reps;

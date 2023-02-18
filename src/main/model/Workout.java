@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+// A workout filled with exercises
 public class Workout {
 
     private String workoutGoal;

@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+// A muscle group with a list of exercises that work out that muscle
 public class MuscleGroup {
     private String name;
     private List<Exercise> exercises;

@@ -1,5 +1,6 @@
 package model;
 
+// A Day in a weekly workout plan
 public class Day {
     private final String name;
     private String status;
