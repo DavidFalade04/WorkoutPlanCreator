@@ -111,15 +111,13 @@ public class WorkoutCreatorApp {
         Workout workout = day.getWorkout();
         if (command.equals("c")) {
             System.out.print("new status:");
-            String status = input.next();
-            day.setStatus(status);
+            day.setStatus(input.next());
             dayViewer(day);
         } else if (command.equals("s")) {
             System.out.print("new workout name: ");
-            String name = input.next();
+            workout = new Workout(input.next());
             System.out.print("workout goal: ");
-            String goal = input.next();
-            workout = new Workout(goal);
+            workout.changeGoal(input.next());
             day.setWorkout(workout);
             editWorkout(day.getWorkout());
         } else if (command.contains("e")) {
