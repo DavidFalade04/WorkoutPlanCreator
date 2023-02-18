@@ -38,8 +38,9 @@ public class Day {
         return name;
     }
 
-    //EFFECTS:
+    //EFFECTS: gets workout
     public Workout getWorkout() {
+
         return workout;
     }
 }

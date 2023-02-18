@@ -34,7 +34,7 @@ public class WorkoutPlan {
     //EFFECTS: gets specific day from days
     public Day getDay(String dayName) {
         for (Day day : days) {
-            if (dayName == day.getName()) {
+            if (day.getName().equals(dayName)) {
                 return day;
             }
 
