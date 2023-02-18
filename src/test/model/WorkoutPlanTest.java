@@ -42,6 +42,11 @@ public class WorkoutPlanTest {
     }
 
     @Test
+    public void getDayInvalidTest() {
+        Day day = myPlan.getDay("foo");
+        assertEquals(null, day);
+    }
+    @Test
     public void renameTest() {
         assertEquals("my plan", myPlan.getName());
         myPlan.rename("weight loss");

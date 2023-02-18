@@ -31,9 +31,8 @@ public class WorkoutPlan {
         }
     }
 
-
-    //REQUIRES: day must be a valid day name
     //EFFECTS: gets specific day from days
+    //         if day is not valid returns null
     public Day getDay(String dayName) {
         for (Day day : days) {
             if (day.getName().equals(dayName)) {
