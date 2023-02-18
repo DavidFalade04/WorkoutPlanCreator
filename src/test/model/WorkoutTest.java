@@ -13,16 +13,12 @@ public class WorkoutTest {
     Workout workout;
     Exercise exercise1 = new Exercise("pull-up");
     Exercise exercise2 = new Exercise("sit-up");
-    MuscleGroup biceps = new MuscleGroup("biceps");
-    MuscleGroup chest = new MuscleGroup("chest");
-    List<MuscleGroup> muscleGroups = new ArrayList<MuscleGroup>();
-
 
     @BeforeEach
     public void setup() {
         muscleGroups.add(biceps);
         muscleGroups.add(chest);
-        workout = new Workout("chest", muscleGroups);
+        workout = new Workout("chest");
     }
 
     @Test
@@ -82,14 +78,6 @@ public class WorkoutTest {
 
     }
 
-
-    @Test
-    public void getMuscleGroupsTest() {
-        List<MuscleGroup> result = workout.getMuscleGroups();
-        assertTrue(result.contains(biceps));
-        assertTrue(result.contains(chest));
-        assertEquals(2, result.size());
-    }
 
     @Test
     public void getExercisesOneTest() {

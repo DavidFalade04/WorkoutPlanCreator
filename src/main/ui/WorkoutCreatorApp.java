@@ -4,7 +4,6 @@ import model.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -91,32 +90,128 @@ public class WorkoutCreatorApp {
 
             System.out.println("c -> change status");
             System.out.println("s -> set workout");
+            System.out.println("v -> view exercises");
             System.out.println("b -> back");
         } else {
             System.out.println(workout.getWorkoutGoal());
 
             System.out.println("c -> change status");
             System.out.println("e -> edit workout");
+            System.out.println("v -> view exercises");
             System.out.println("b -> back");
         }
         String command = input.next();
         dayOptions(day, command);
     }
 
+    //REQUIRES: if command is e, day must already have workout set
     //MODIFIES: this
     //EFFECTS: acts out specified user action on day
     private void dayOptions(Day day,String command) {
+        Workout workout = day.getWorkout();
         if (command.equals("c")) {
-            System.out.println("new status:");
+            System.out.print("new status:");
             String status = input.next();
             day.setStatus(status);
+            dayViewer(day);
         } else if (command.equals("s")) {
-            System.out.println("new workout name: ");
+            System.out.print("new workout name: ");
             String name = input.next();
-
-            Workout workout = new Workout();
+            System.out.print("workout goal: ");
+            String goal = input.next();
+            workout = new Workout(goal);
             day.setWorkout(workout);
+            editWorkout(day.getWorkout());
+        } else if (command.contains("e")) {
+            editWorkout(workout);
+        } else if (command.equals("v")) {
+            if (workout == null) {
+                System.out.println("no exercises :(");
+            } else {
+                displayExercises(workout);
+            }
+        } else if (command.equals("b")) {
+            displayMainMenu();
         }
+    }
+
+    //EFFECTS: displays exercises in a workout
+    private void displayExercises(Workout workout) {
+        List<Exercise> exercises = workout.getExercises();
+        for (Exercise e : exercises) {
+            System.out.println("\n name: +" + e.getName());
+            System.out.println("\t sets: " + e.getSets());
+            System.out.println("\t reps: " + e.getReps());
+            System.out.println("\t pr: " + e.getPr());
+        }
+    }
+
+    //REQUIRES: workout should not be null
+    //MODIFIES: this
+    //EFFECTS: edits workouts
+    private void editWorkout(Workout workout) {
+        System.out.println("c -> change goal");
+        System.out.println("a -> add exercises");
+        String command = input.next();
+
+        if (command.equals("c")) {
+            String goal = input.next();
+            workout.changeGoal(goal);
+        } else if (command.equals("a")) {
+            Exercise exercise = browse();
+            workout.add(exercise);
+
+        }
+    }
+
+    //EFFECTS: browses collection of exercises
+    private Exercise browse() {
+        String command = chooseMuscleGroup();
+        List<Exercise> exercises = null;
+        if (command.equals("c")) {
+            exercises = muscleGroups.get(0).getExercises();
+        } else if (command.equals("b")) {
+            exercises = muscleGroups.get(1).getExercises();
+        } else if (command.equals("l")) {
+            exercises = muscleGroups.get(2).getExercises();
+        } else if (command.equals("s")) {
+            exercises = muscleGroups.get(3).getExercises();
+        } else {
+            browse();
+        }
+
+        Exercise exercise = chooseExercise(exercises);
+        return exercise;
+    }
+
+    private Exercise chooseExercise(List<Exercise> exercises) {
+        int index = 0;
+        Exercise exercise = null;
+        for (Exercise e : exercises) {
+            System.out.println(index + ": " + e.getName());
+            index++;
+        }
+        System.out.print("enter the number of the exercise you would like to select");
+        index = input.nextInt();
+
+        if (index < exercises.size()) {
+            exercise = exercises.get(index);
+        } else {
+            chooseExercise(exercises);
+        }
+
+        return exercise;
+    }
+
+    //EFFECTS: queries user for a muscle group
+    private String chooseMuscleGroup() {
+        System.out.println("\nchoose a muscle group:");
+        System.out.println("\tb -> back");
+        System.out.println("\tc -> chest");
+        System.out.println("\tl -> leg");
+        System.out.println("\ts -> shoulder");
+        String command = input.next();
+        return command;
     }
 
     //EFFECTS: displays workoutPlan contents

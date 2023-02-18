@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DayTest {
     Day monday;
     List<MuscleGroup> muscleGroups = new ArrayList<MuscleGroup>();
-    Workout cardio = new Workout("cardio", muscleGroups);
-    Workout legs = new Workout("legs", muscleGroups);
+    Workout cardio = new Workout("cardio" );
+    Workout legs = new Workout("legs");
 
     @BeforeEach
     public void setUp() {

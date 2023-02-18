@@ -13,7 +13,7 @@ public class WorkoutPlanTest {
 
     WorkoutPlan myPlan;
     List<MuscleGroup> muscleGroups = new ArrayList<MuscleGroup>();
-    Workout cardio = new Workout("cardio", muscleGroups);
+    Workout cardio = new Workout("cardio");
     Day monday = new Day("monday");
     Day tuesday = new Day("tuesday");
     Day wednesday = new Day("wednesday");
