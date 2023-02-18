@@ -9,7 +9,7 @@ create your own workout regiments.
 Workout Creator allows you to...
 - **Choose** and **customize** pre-made schedule templates or **create** your
   own 
-- **Add** what muscle groups your hitting on what day
+- **browse** exercises categorized by muscle groups they work
 - **Log** and **track** your workout history and PR's
 
 This project is of personal interest to me, as 
