@@ -31,7 +31,63 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\data\MuscleGroupExercises\ChestExercises.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\data\MuscleGroupExercises\LegExercises.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\data\MuscleGroupExercises\ShoulderExercises.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\data\ShoulderExercises.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\data\WorkoutTemplateExercises\BackBreaker.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\data\WorkoutTemplateExercises\BackExercises.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\data\WorkoutTemplateExercises\LegDay.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\data\WorkoutTemplateExercises\PecPopper.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\data\WorkoutTemplateExercises\Shoulder Slammer.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

@@ -135,13 +135,13 @@ public class WorkoutCreatorApp {
         Workout workout = day.getWorkout();
 
         if (command.equals("s")) {
-            System.out.println("c -> create a new workout from scratch");
-            System.out.println("b -> browse pre-made workouts to start with");
+            System.out.println("m -> make a new workout from scratch");
+            System.out.println("b -> browse our workout presets");
             String choice = input.next();
-            if (choice.equals("c")) {
+            if (choice.equals("m")) {
                 newWorkout(day);
             } else if (choice.equals("b")) {
-                browseWorkouts(day);
+                browseWorkoutPresets(day);
             } else {
                 dayOptions(day, command);
             }
@@ -158,16 +158,69 @@ public class WorkoutCreatorApp {
         }
     }
 
-    private void browseWorkouts(Day day) {
-        //TODO:
+    private void browseWorkoutPresets(Day day) {
+        int index = 0;
+        System.out.println("\nWorkout Presets:");
+        for (Workout w: workoutTemplates) {
+            System.out.println("\t(" + index + ") " + w.getWorkoutGoal());
+            index++;
+        }
+        System.out.print("enter a preset number to view: ");
+        index = input.nextInt();
+        if (index < workoutTemplates.size()) {
+            viewWorkoutPreset(day, workoutTemplates.get(index));
+        } else {
+            browseWorkoutPresets(day);
+        }
     }
 
+    //MODIFIES: this
+    //EFFECTS: views the exercises of a preset
+    private void viewWorkoutPreset(Day day, Workout preset) {
+        displayExercises(preset);
+        System.out.println("s -> select this preset");
+        System.out.println("b -> back to other presets");
+        String choice = input.next();
+        if (choice.equals("s")) {
+            loadWorkoutPreset(day, preset);
+            System.out.println("workout: " + preset.getWorkoutGoal() + " selected!");
+            dayViewer(day);
+        } else if (choice.equals("b")) {
+            browseWorkoutPresets(day);
+        } else {
+            viewWorkoutPreset(day, preset);
+        }
+    }
+
+    //MODIFIES: this
+    //EFFECTS: creates a new workout from a preset
+    private void loadWorkoutPreset(Day day, Workout preset) {
+        newWorkout(day, preset.getWorkoutGoal());
+        Workout workout = day.getWorkout();
+        for (Exercise e : preset.getExercises()) {
+            Exercise newExercise = new Exercise(e.getName());
+            newExercise.setSets(e.getSets());
+            newExercise.setReps(e.getReps());
+            workout.add(newExercise);
+        }
+
+    }
+
+    //MODIFIES: this
+    //EFFECTS: creates a new workout from user input and then brings u to edit menu
     private void newWorkout(Day day) {
         Workout workout;
         System.out.print("new workout name: ");
-        workout = new Workout(input.next());
-        day.setWorkout(workout);
+        String name = input.next();
+        newWorkout(day, name);
         editWorkout(day.getWorkout(), day);
+    }
+
+    //MODIFIES: this
+    //EFFECTS: creates a new workout
+    private void newWorkout(Day day, String name) {
+        Workout workout = new Workout(name);
+        day.setWorkout(workout);
         day.setStatus("doing " + day.getWorkout().getWorkoutGoal());
     }
 
@@ -176,7 +229,7 @@ public class WorkoutCreatorApp {
         List<Exercise> exercises = workout.getExercises();
         int index = 0;
         for (Exercise e : exercises) {
-            System.out.print("(" + index + ")");
+            System.out.print("(" + index + ") ");
             displayExercise(e);
             index++;
         }
@@ -184,7 +237,7 @@ public class WorkoutCreatorApp {
 
     //EFFECTS: displays the properties of a exercise
     private void displayExercise(Exercise e) {
-        System.out.println("\n name: " + e.getName());
+        System.out.println(e.getName());
         System.out.println("\t sets: " + e.getSets());
         System.out.println("\t reps: " + e.getReps());
         System.out.println("\t pr: " + e.getPr());
@@ -240,14 +293,23 @@ public class WorkoutCreatorApp {
     }
 
     //MODIFIES: this
-    //EFFECTS: edits the properties of an exercise
+    //EFFECTS: edits the properties of an exercise, through user input
     private void editExercise(Exercise exercise) {
         displayExercise(exercise);
 
         System.out.print("\n# of sets: ");
-        exercise.setSets(input.nextInt());
+        int sets = input.nextInt();
         System.out.print("# of reps: ");
-        exercise.setReps(input.nextInt());
+        int reps = input.nextInt();
+        editExercise(exercise, sets, reps);
+    }
+
+    //MODIFIES: this
+    //EFFECTS: edits the properties of an exercise
+    private void editExercise(Exercise exercise, int sets, int reps) {
+
+        exercise.setSets(sets);
+        exercise.setReps(reps);
 
     }
 
@@ -365,14 +427,41 @@ public class WorkoutCreatorApp {
         Workout backBreaker = new Workout("Back Breaker");
         Workout legDay = new Workout("Leg Day!!");
         Workout pecPopper = new Workout("Pec Popper");
+        Workout shoulderSlammer = new Workout("Shoulder Slammer");
 
-        setWorkout(backBreaker);
-        setWorkout(legDay);
-        setWorkout(pecPopper);
+        setWorkout(backBreaker, "data/WorkoutTemplateExercises/BackBreaker.csv");
+        setWorkout(legDay, "data/WorkoutTemplateExercises/LegDay.csv");
+        setWorkout(pecPopper, "data/WorkoutTemplateExercises/PecPopper.csv");
+        setWorkout(shoulderSlammer,"data/WorkoutTemplateExercises/Shoulder Slammer.csv");
+
+        workoutTemplates = new ArrayList<Workout>();
+        workoutTemplates.add(backBreaker);
+        workoutTemplates.add(legDay);
+        workoutTemplates.add(pecPopper);
+        workoutTemplates.add(shoulderSlammer);
 
     }
 
-    private void setWorkout(Workout backBreaker) {
+    private void setWorkout(Workout workout, String path) {
+        String name;
+        File file = new File(path);
+        Scanner input = null;
+        try {
+            input = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        input.useDelimiter(",");
+
+        while (input.hasNext()) {
+            name = input.next();
+            Exercise exercise = new Exercise(name);
+            workout.add(exercise);
+            int sets = input.nextInt();
+            int reps = input.nextInt();
+            editExercise(exercise, sets, reps);
+        }
+
     }
 
     //
@@ -403,10 +492,10 @@ public class WorkoutCreatorApp {
         MuscleGroup legs = new MuscleGroup("legs");
         MuscleGroup shoulders = new MuscleGroup("shoulders");
 
-        setMuscleGroups(chest, "data/ChestExercises.csv");
+        setMuscleGroups(chest, "data/MuscleGroupExercises/ChestExercises.csv");
         setMuscleGroups(back, "data/MuscleGroupExercises/BackExercises.csv");
-        setMuscleGroups(legs,"data/LegExercises.csv");
-        setMuscleGroups(shoulders, "data/ShoulderExercises.csv");
+        setMuscleGroups(legs,"data/MuscleGroupExercises/LegExercises.csv");
+        setMuscleGroups(shoulders, "data/MuscleGroupExercises/ShoulderExercises.csv");
 
         muscleGroups.add(chest);
         muscleGroups.add(back);
