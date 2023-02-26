@@ -24,4 +24,7 @@ i'm trying to get into working out more.
 - As a user I want to be able to change the sets and reps for an exercise
 - As a user I want to be able to choose from and customize pre-made workout templates 
 - As a user I want to be able to browse exercises for different muscle groups
+- As a user I want to be able to save all of my workout plans to file
+- As a user I want to be able to load my saved workout plans from file
+
 
