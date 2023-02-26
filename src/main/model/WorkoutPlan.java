@@ -31,6 +31,7 @@ public class WorkoutPlan {
         }
     }
 
+
     //EFFECTS: gets specific day from days
     //         if day is not valid returns null
     public Day getDay(String dayName) {

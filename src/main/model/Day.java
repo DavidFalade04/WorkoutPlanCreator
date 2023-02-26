@@ -14,12 +14,14 @@ public class Day {
         this.status = "rest";
     }
 
+    //MODIFIES: this
     //EFFECTS: sets the day's workout
-    //         if there's already a workout
     public void setWorkout(Workout workout) {
         this.workout = workout;
     }
 
+
+    //MODIFIES: this
     //EFFECTS: removes workout
     public void removeWorkout() {
         this.workout = null;
@@ -38,7 +40,6 @@ public class Day {
         return name;
     }
 
-    //EFFECTS: gets workout
     public Workout getWorkout() {
 
         return workout;

@@ -3,27 +3,6 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="\data\BackExercises.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\data\ChestExercises.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\data\LegExercises.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="\data\MuscleGroupExercises\BackExercises.csv">
           <value>
             <Attribute>
@@ -52,21 +31,7 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="\data\ShoulderExercises.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="\data\WorkoutTemplateExercises\BackBreaker.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\data\WorkoutTemplateExercises\BackExercises.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
@@ -88,13 +53,6 @@
           </value>
         </entry>
         <entry key="\data\WorkoutTemplateExercises\Shoulder Slammer.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\data\daynames.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

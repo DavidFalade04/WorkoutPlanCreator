@@ -38,7 +38,7 @@ public class ExerciseTest {
     public void changeNameTest() {
 
         assertEquals(e1Name,exercise1.getName());
-        exercise1.changeName("jump rope");
+        exercise1.setName("jump rope");
         assertEquals("jump rope", exercise1.getName());
     }
 

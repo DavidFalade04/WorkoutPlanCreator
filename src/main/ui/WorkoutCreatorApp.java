@@ -19,6 +19,7 @@ public class WorkoutCreatorApp {
 
 
 
+    //MODIFIES: this, MuscleGroup, Exercise, Workout
     //EFFECTS: runs app and initializes empty lists
     public WorkoutCreatorApp() throws FileNotFoundException {
         plans = new ArrayList<>();
@@ -29,8 +30,8 @@ public class WorkoutCreatorApp {
     }
 
     //NOTE: pieces of code gotten from tellerApp
-    //MODIFIES: this
-    //EFFECTS:
+    //MODIFIES: this, MuscleGroup, Exercise
+    //EFFECTS: Runs Workout Creator App
     private void runApp() throws FileNotFoundException {
 
         boolean keepGoing = true;
@@ -79,6 +80,7 @@ public class WorkoutCreatorApp {
         }
     }
 
+    //EFFECTS: loads created plans
     private void loadPlans() {
         if (plans.isEmpty()) {
             System.out.println("No plans created yet");
@@ -101,7 +103,9 @@ public class WorkoutCreatorApp {
 
     }
 
-    //REQUIRES: valid day entered
+    //REQUIRES: day's name must be "monday", "tuesday", "wednesday",
+    //          "thursday", "friday", "saturday", or "sunday"
+    //MODIFIES: this, Workout, Exercise
     //EFFECTS: toggles a day in a workout
     private void dayViewer(Day day) {
         System.out.println("Day: " + day.getName());
@@ -129,7 +133,7 @@ public class WorkoutCreatorApp {
     }
 
     //REQUIRES: if command is e, day must already have workout set
-    //MODIFIES: this
+    //MODIFIES: this, Workout, Exercise
     //EFFECTS: acts out specified user action on day
     private void dayOptions(Day day,String command) {
         Workout workout = day.getWorkout();
@@ -148,16 +152,25 @@ public class WorkoutCreatorApp {
         } else if (command.contains("e")) {
             editWorkout(workout, day);
         } else if (command.equals("v")) {
-            if (workout == null) {
-                System.out.println("no exercises :(");
-            } else {
-                displayExercises(workout);
-            }
+            displayExercises(workout);
         } else if (command.equals("b")) {
-            displayMainMenu();
+            return;
         }
+
     }
 
+    //EFFECTS: queries user for options after viewing exercises
+    private void viewWorkoutQuery(Workout workout) {
+
+        System.out.print("enter exercise number to edit: ");
+        int index = input.nextInt();
+        Exercise e = workout.getExercises().get(index);
+        editExercise(e);
+
+    }
+
+    //MODIFIES: this, Workout, Exercise
+    //EFFECTS: displays workout presets to browse
     private void browseWorkoutPresets(Day day) {
         int index = 0;
         System.out.println("\nWorkout Presets:");
@@ -174,7 +187,7 @@ public class WorkoutCreatorApp {
         }
     }
 
-    //MODIFIES: this
+    //MODIFIES: this, Workout, Exercise
     //EFFECTS: views the exercises of a preset
     private void viewWorkoutPreset(Day day, Workout preset) {
         displayExercises(preset);
@@ -192,7 +205,7 @@ public class WorkoutCreatorApp {
         }
     }
 
-    //MODIFIES: this
+    //MODIFIES: Workout, Exercise
     //EFFECTS: creates a new workout from a preset
     private void loadWorkoutPreset(Day day, Workout preset) {
         newWorkout(day, preset.getWorkoutGoal());
@@ -206,8 +219,8 @@ public class WorkoutCreatorApp {
 
     }
 
-    //MODIFIES: this
-    //EFFECTS: creates a new workout from user input and then brings u to edit menu
+    //MODIFIES: Workout, Exercise
+    //EFFECTS: creates a new workout from user input and then brings you to edit menu
     private void newWorkout(Day day) {
         Workout workout;
         System.out.print("new workout name: ");
@@ -224,8 +237,13 @@ public class WorkoutCreatorApp {
         day.setStatus("doing " + day.getWorkout().getWorkoutGoal());
     }
 
-    //EFFECTS: displays exercises in a workout
-    private void displayExercises(Workout workout) {
+    //EFFECTS: displays exercises in a workout and returns false if no exercise
+    //         and true otherwise
+    private Boolean displayExercises(Workout workout) {
+        if (workout == null) {
+            System.out.println("no exercises :(");
+            return false;
+        }
         List<Exercise> exercises = workout.getExercises();
         int index = 0;
         for (Exercise e : exercises) {
@@ -233,6 +251,8 @@ public class WorkoutCreatorApp {
             displayExercise(e);
             index++;
         }
+        return true;
+
     }
 
     //EFFECTS: displays the properties of a exercise
@@ -244,12 +264,13 @@ public class WorkoutCreatorApp {
     }
 
     //REQUIRES: workout should not be null
-    //MODIFIES: this
+    //MODIFIES: this, Workout, Exercise
     //EFFECTS: edits workouts
     private void editWorkout(Workout workout, Day day) {
         System.out.println("c -> change goal");
         System.out.println("a -> add an exercise");
         System.out.println("r -> remove an exercises");
+        System.out.println("e -> edit an exercise");
         System.out.println("b -> back");
         String command = input.next();
 
@@ -260,11 +281,17 @@ public class WorkoutCreatorApp {
             addExercise(workout, day);
         } else if (command.equals("r")) {
             removeExercise(workout, day);
+        } else if (command.equals("e")) {
+            if (displayExercises(workout)) {
+                viewWorkoutQuery(workout);
+            }
         } else if (command.equals("b")) {
             dayViewer(day);
         }
     }
 
+    //MODIFIES: Workout, Exercise,
+    //EFFECTS: removes an exercise from a workout
     private void removeExercise(Workout workout, Day day) {
         List<Exercise> exercises = workout.getExercises();
         if (exercises.isEmpty() | exercises == null) {
@@ -283,7 +310,7 @@ public class WorkoutCreatorApp {
         editWorkout(workout, day);
     }
 
-    //MODIFIES: this
+    //MODIFIES: this, Exercise, Workout
     //EFFECTS: adds an exercise to a workout
     private void addExercise(Workout workout, Day day) {
         Exercise exercise = browse();
@@ -292,7 +319,7 @@ public class WorkoutCreatorApp {
         editWorkout(workout, day);
     }
 
-    //MODIFIES: this
+    //MODIFIES: Exercise
     //EFFECTS: edits the properties of an exercise, through user input
     private void editExercise(Exercise exercise) {
         displayExercise(exercise);
@@ -304,7 +331,7 @@ public class WorkoutCreatorApp {
         editExercise(exercise, sets, reps);
     }
 
-    //MODIFIES: this
+    //MODIFIES: Exercise
     //EFFECTS: edits the properties of an exercise
     private void editExercise(Exercise exercise, int sets, int reps) {
 
@@ -313,7 +340,7 @@ public class WorkoutCreatorApp {
 
     }
 
-    //EFFECTS: browses collection of exercises
+    //EFFECTS: allows user to browse exercises sorted in muscle groups
     private Exercise browse() {
         String command = chooseMuscleGroup();
         List<Exercise> exercises = null;
@@ -333,6 +360,7 @@ public class WorkoutCreatorApp {
         return exercise;
     }
 
+    //EFFECTS: allows user to view and choose exercises in a list
     private Exercise chooseExercise(List<Exercise> exercises) {
         int index = 0;
         Exercise exercise = null;
@@ -363,7 +391,8 @@ public class WorkoutCreatorApp {
         return command;
     }
 
-    //EFFECTS: displays workoutPlan contents
+    //MODIFIES: this, Exercise, Workout
+    //EFFECTS: allows user to select view a plan and select a day
     private void viewPlan(WorkoutPlan workoutPlan) {
         System.out.println("viewing " + workoutPlan.getName());
         System.out.println("");
@@ -412,7 +441,7 @@ public class WorkoutCreatorApp {
 
     }
 
-    //MODIFIES: this
+    //MODIFIES: this, MuscleGroup, Exercise, Workout
     //EFFECTS: initializes workout creator app
     private void init() throws FileNotFoundException {
         initMuscleGroups();
@@ -423,6 +452,8 @@ public class WorkoutCreatorApp {
 
     }
 
+    //MODIFIES: this, Workout, Exercise
+    //EFFECTS: initializes pre-made workout templates
     private void initWorkoutTemplates() {
         Workout backBreaker = new Workout("Back Breaker");
         Workout legDay = new Workout("Leg Day!!");
@@ -442,6 +473,9 @@ public class WorkoutCreatorApp {
 
     }
 
+    //REQUIRES: path must csv, file in order of name, sets, reps
+    //MODIFIES: Workout, Exercise
+    //EFFECTS: populates a workout with exercises
     private void setWorkout(Workout workout, String path) {
         String name;
         File file = new File(path);
@@ -464,7 +498,7 @@ public class WorkoutCreatorApp {
 
     }
 
-    //
+    //Modifies: this
     //EFFECTS: creates days of the week and initializes names of day
     private void initDefaultDays() {
         dayNames = new ArrayList<>();
@@ -484,7 +518,7 @@ public class WorkoutCreatorApp {
 
     }
 
-    //MODIFIES: this
+    //MODIFIES: this, MuscleGroup
     //EFFECTS: Initializes muscle groups
     private void initMuscleGroups() throws FileNotFoundException {
         MuscleGroup chest = new MuscleGroup("chest");
@@ -504,6 +538,7 @@ public class WorkoutCreatorApp {
 
     }
 
+    //MODIFIES: MuscleGroup
     //EFFECTS: creates muscle groups and populates them with exercises
     private void setMuscleGroups(MuscleGroup muscleGroup, String path) throws FileNotFoundException {
         String name;

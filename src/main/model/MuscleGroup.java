@@ -14,6 +14,7 @@ public class MuscleGroup {
         this.exercises = new ArrayList<Exercise>();
     }
 
+    //MODIFIES: this
     //EFFECTS: populates muscle groups with exercise
     public void populate(List<Exercise> exercises) {
 
