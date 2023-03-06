@@ -29,7 +29,7 @@ public class ExerciseTest {
     @Test
     public void newPrTest() {
         assertEquals(0,exercise1.getPr());
-        exercise1.newPr(60);
+        exercise1.setPr(60);
         assertEquals(60, exercise1.getPr());
     }
 

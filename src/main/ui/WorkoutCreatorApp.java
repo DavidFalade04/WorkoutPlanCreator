@@ -1,9 +1,11 @@
 package ui;
 
 import model.*;
+import persistance.JsonReader;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -16,28 +18,45 @@ public class WorkoutCreatorApp {
     private List<Day> defaultDays;
     private List<Workout> workoutTemplates;
     private Scanner input;
+    private JsonReader jsonReader;
 
 
 
     //MODIFIES: this, MuscleGroup, Exercise, Workout
     //EFFECTS: runs app and initializes empty lists
-    public WorkoutCreatorApp() throws FileNotFoundException {
+    public WorkoutCreatorApp() throws IOException {
         plans = new ArrayList<>();
         muscleGroups = new ArrayList<>();
         defaultDays = new ArrayList<>();
+        jsonReader = new JsonReader("data/JsonData/TestWorkoutPlan.json");
+
 
         runApp();
+    }
+
+    //MODIFIES: this
+    //EFFECTS: loads saved data from file
+    private void load() throws IOException {
+        List<WorkoutPlan> loadedPlans = jsonReader.read();
+        for (WorkoutPlan wp : loadedPlans) {
+            plans.add(wp);
+            System.out.println("loaded " + wp.getName() + "from memory");
+        }
+
+
+
     }
 
     //NOTE: pieces of code gotten from tellerApp
     //MODIFIES: this, MuscleGroup, Exercise
     //EFFECTS: Runs Workout Creator App
-    private void runApp() throws FileNotFoundException {
+    private void runApp() throws IOException {
 
         boolean keepGoing = true;
         String command = null;
 
         init();
+        load();
 
         //NOTE: extracted from teller app
         while (keepGoing) {
@@ -413,6 +432,7 @@ public class WorkoutCreatorApp {
         }
     }
 
+    //REQUIRES: workout plan days length to be = 7
     //EFFECTS: list the days of a workout plan and its status
     private void listDays(WorkoutPlan workoutPlan) {
         System.out.println("Day:" + "         " + "Status:");
@@ -446,6 +466,7 @@ public class WorkoutCreatorApp {
     private void init() throws FileNotFoundException {
         initMuscleGroups();
         initWorkoutTemplates();
+        initDefaultDays();
         //NOTE: extracted from teller app
         input = new Scanner(System.in);
         input.useDelimiter("\n");

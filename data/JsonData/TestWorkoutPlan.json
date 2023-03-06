@@ -1,0 +1,268 @@
+[{
+  "days": [{
+    "name": "monday",
+    "status": "Leg day",
+    "workout": {
+      "workout goal" : "Legs",
+      "exercises": [
+        {"name":  "jumping jacks",
+        "pr":  "3",
+        "reps":  "12",
+        "sets": "13"},
+        {"name":  "calf raises",
+          "pr":  "2",
+          "reps":  "120",
+          "sets": "132"}
+      ]
+    }
+  },
+    {
+      "name": "tuesday",
+      "status": "back day",
+      "workout": {
+        "workout goal" : "back",
+        "exercises": [
+          {"name":  "squats ",
+            "pr":  "2",
+            "reps":  "44",
+            "sets": "32"},
+          {"name":  "pull ups ",
+            "pr":  "3",
+            "reps":  "55",
+            "sets": "66"}
+
+
+        ]
+      }
+    },
+    {
+      "name": "wednesday",
+      "status": "back day",
+      "workout": {
+        "workout goal" : "back",
+        "exercises": [
+          {"name":  "squats ",
+            "pr":  "2",
+            "reps":  "44",
+            "sets": "32"},
+          {"name":  "pull ups ",
+            "pr":  "3",
+            "reps":  "55",
+            "sets": "66"}
+
+
+        ]
+      }
+    },
+    {
+      "name": "thursday",
+      "status": "back day",
+      "workout": {
+        "workout goal" : "back",
+        "exercises": [
+          {"name":  "squats ",
+            "pr":  "2",
+            "reps":  "44",
+            "sets": "32"},
+          {"name":  "pull ups ",
+            "pr":  "3",
+            "reps":  "55",
+            "sets": "66"}
+
+
+        ]
+      }
+    },
+    {
+      "name": "friday",
+      "status": "back day",
+      "workout": {
+        "workout goal" : "back",
+        "exercises": [
+          {"name":  "squats ",
+            "pr":  "2",
+            "reps":  "44",
+            "sets": "32"},
+          {"name":  "pull ups ",
+            "pr":  "3",
+            "reps":  "55",
+            "sets": "66"}
+
+
+        ]
+      }
+    },
+    {
+      "name": "saturday",
+      "status": "back day",
+      "workout": {
+        "workout goal" : "back",
+        "exercises": [
+          {"name":  "squats ",
+            "pr":  "2",
+            "reps":  "44",
+            "sets": "32"},
+          {"name":  "pull ups ",
+            "pr":  "3",
+            "reps":  "55",
+            "sets": "66"}
+
+
+        ]
+      }
+    },
+    {
+      "name": "sunday",
+      "status": "back day",
+      "workout": {
+        "workout goal" : "back",
+        "exercises": [
+          {"name":  "squats ",
+            "pr":  "2",
+            "reps":  "44",
+            "sets": "32"},
+          {"name":  "pull ups ",
+            "pr":  "3",
+            "reps":  "55",
+            "sets": "66"}
+
+
+        ]
+      }
+    }],
+  "name": "David's Workout"
+},
+{
+"days": [{
+"name": "monday",
+"status": "Leg day",
+"workout": {
+"workout goal" : "Legs",
+"exercises": [
+{"name":  "jumping jacks",
+"pr":  "3",
+"reps":  "12",
+"sets": "13"},
+{"name":  "calf raises",
+"pr":  "2",
+"reps":  "120",
+"sets": "132"}
+]
+}
+},
+{
+"name": "tuesday",
+"status": "back day",
+"workout": {
+"workout goal" : "back",
+"exercises": [
+{"name":  "squats ",
+"pr":  "2",
+"reps":  "44",
+"sets": "32"},
+{"name":  "pull ups ",
+"pr":  "3",
+"reps":  "55",
+"sets": "66"}
+
+
+]
+}
+},
+{
+"name": "wednesday",
+"status": "back day",
+"workout": {
+"workout goal" : "back",
+"exercises": [
+{"name":  "squats ",
+"pr":  "2",
+"reps":  "44",
+"sets": "32"},
+{"name":  "pull ups ",
+"pr":  "3",
+"reps":  "55",
+"sets": "66"}
+
+
+]
+}
+},
+{
+"name": "thursday",
+"status": "back day",
+"workout": {
+"workout goal" : "back",
+"exercises": [
+{"name":  "squats ",
+"pr":  "2",
+"reps":  "44",
+"sets": "32"},
+{"name":  "pull ups ",
+"pr":  "3",
+"reps":  "55",
+"sets": "66"}
+
+
+]
+}
+},
+{
+"name": "friday",
+"status": "back day",
+"workout": {
+"workout goal" : "back",
+"exercises": [
+{"name":  "squats ",
+"pr":  "2",
+"reps":  "44",
+"sets": "32"},
+{"name":  "pull ups ",
+"pr":  "3",
+"reps":  "55",
+"sets": "66"}
+
+
+]
+}
+},
+{
+"name": "saturday",
+"status": "back day",
+"workout": {
+"workout goal" : "back",
+"exercises": [
+{"name":  "squats ",
+"pr":  "2",
+"reps":  "44",
+"sets": "32"},
+{"name":  "pull ups ",
+"pr":  "3",
+"reps":  "55",
+"sets": "66"}
+
+
+]
+}
+},
+{
+"name": "sunday",
+"status": "back day",
+"workout": {
+"workout goal" : "back",
+"exercises": [
+{"name":  "squats ",
+"pr":  "2",
+"reps":  "44",
+"sets": "32"},
+{"name":  "pull ups ",
+"pr":  "3",
+"reps":  "55",
+"sets": "66"}
+
+
+]
+}
+}],
+"name": "michael's Workout"
+}]

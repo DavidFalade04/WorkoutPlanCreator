@@ -21,7 +21,7 @@ public class Exercise {
 
     //MODIFIES: this
     //EFFECTS: changes pr
-    public void newPr(int pr) {
+    public void setPr(int pr) {
         this.pr = pr;
     }
 

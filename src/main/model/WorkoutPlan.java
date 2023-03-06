@@ -17,6 +17,7 @@ public class WorkoutPlan {
         this.days.addAll(days);
     }
 
+
     //MODIFIES: this
     //EFFECTS: changes name of workout plan
     public void rename(String name) {
