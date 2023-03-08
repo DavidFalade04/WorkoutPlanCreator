@@ -8,8 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 //note: template gotten from JsonSerializationDemo
 public class JsonReaderTest {
@@ -57,6 +56,44 @@ List <String> dayNames;
                 fail("Couldn't read from file");
             }
         }
+
+    @Test
+    void testReaderGeneralNullWorkout() {
+        initDefaultDays();
+
+        JsonReader reader = new JsonReader("data/JsonData/JsonTestFiles/TestNullWorkout.json");
+        try {
+            List<WorkoutPlan> plans = reader.read();
+            WorkoutPlan wp = plans.get(0);
+            assertEquals("David's Workout", wp.getName());
+            List<Day> days = new ArrayList<>();
+            for (String d : dayNames) {
+                Day day = wp.getDay(d);
+                assertEquals(null, day.getWorkout());
+                days.add(day);
+            }
+            assertEquals(7,days.size());
+
+        } catch (IOException e) {
+            fail("Couldn't read from file");
+        }
+    }
+
+    @Test
+    void testReadEmptyWorkout() {
+        initDefaultDays();
+
+        JsonReader reader = new JsonReader("data/JsonData/JsonTestFiles/TestReadEmptyFile.json");
+        try {
+            List<WorkoutPlan> plans = reader.read();
+            assertTrue(plans.isEmpty());
+        } catch (IOException e) {
+            fail("Couldn't read from file");
+        }
+    }
+
+
+
     //Modifies: this
     //EFFECTS: creates days of the week and initializes names of day
     private void initDefaultDays() {

@@ -1,0 +1,40 @@
+[{
+  "days": [{
+    "name": "monday",
+    "status": "Leg day",
+    "workout": {}
+  },
+    {
+      "name": "tuesday",
+      "status": "back day",
+      "workout": {}
+
+    },
+    {
+      "name": "wednesday",
+      "status": "back day",
+      "workout": {}
+
+    },
+    {
+      "name": "thursday",
+      "status": "back day",
+      "workout": {}
+    },
+    {
+      "name": "friday",
+      "status": "back day",
+      "workout": {}
+    },
+    {
+      "name": "saturday",
+      "status": "back day",
+      "workout": {}
+    },
+    {
+      "name": "sunday",
+      "status": "back day",
+      "workout": {}
+    }],
+  "name": "David's Workout"
+}]

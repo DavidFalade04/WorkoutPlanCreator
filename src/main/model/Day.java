@@ -57,7 +57,7 @@ public class Day implements Writable {
         if (workout != null) {
             json.put("workout", workout.toJson());
         } else {
-            json.put("workout", "null");
+            json.put("workout", new JSONObject());
 
         }
 

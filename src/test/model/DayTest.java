@@ -73,7 +73,6 @@ public class DayTest {
         JSONObject json = monday.toJson();
         assertEquals("monday", json.get("name"));
         assertEquals("rest", json.get("status"));
-        assertEquals("null" ,json.get("workout"));
     }
 
 }

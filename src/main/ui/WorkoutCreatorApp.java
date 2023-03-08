@@ -28,7 +28,7 @@ public class WorkoutCreatorApp {
         plans = new ArrayList<>();
         muscleGroups = new ArrayList<>();
         defaultDays = new ArrayList<>();
-        jsonReader = new JsonReader("data/JsonData/TestWorkoutPlan.json");
+        jsonReader = new JsonReader("data/JsonData/WorkoutAppData.json");
 
 
         runApp();

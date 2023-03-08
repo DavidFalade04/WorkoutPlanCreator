@@ -29,7 +29,12 @@ public class JsonReader {
     //EFFECTS: reads workout plans from file and returns them
     public List<WorkoutPlan> read() throws IOException {
         String jsonData = readFile(source);
-        JSONArray jsonArray = new JSONArray(jsonData);
+        JSONArray jsonArray;
+        if (jsonData.length() != 0) {
+            jsonArray = new JSONArray(jsonData);
+        } else {
+            return new ArrayList<>();
+        }
 
         List<WorkoutPlan> workoutPlans = new ArrayList<>();
 
@@ -82,11 +87,16 @@ public class JsonReader {
     private Day makeDay(JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         String status = jsonObject.getString("status");
-        JSONObject workoutJson = jsonObject.getJSONObject("workout");
-        Workout workout = makeWorkout(workoutJson);
-        Day day = new Day(name);
 
+        Day day = new Day(name);
         day.setStatus(status);
+
+        JSONObject workoutJson = jsonObject.getJSONObject("workout");
+        if (workoutJson.isEmpty()) {
+            day.setWorkout(null);
+            return day;
+        }
+        Workout workout = makeWorkout(workoutJson);
         day.setWorkout(workout);
 
         return day;
