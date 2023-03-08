@@ -24,7 +24,7 @@ i'm trying to get into working out more.
 - As a user I want to be able to change the sets and reps for an exercise
 - As a user I want to be able to choose from and customize pre-made workout templates 
 - As a user I want to be able to browse exercises for different muscle groups
-- As a user I want to be able to save all of my workout plans to file
-- As a user I want to be able to load my saved workout plans from file
+- As a user I want to be able to choose to save my new plans and changes to file before I quit
+- As a user, when I start the application, I want to be given the option to load my created workout plans from file.
 
 

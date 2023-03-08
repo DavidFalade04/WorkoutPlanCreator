@@ -2,6 +2,7 @@ package ui;
 
 import model.*;
 import persistance.JsonReader;
+import persistance.JsonWriter;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,7 +20,8 @@ public class WorkoutCreatorApp {
     private List<Workout> workoutTemplates;
     private Scanner input;
     private JsonReader jsonReader;
-
+    private JsonWriter jsonWriter;
+    private Boolean loadedFromFile;
 
 
     //MODIFIES: this, MuscleGroup, Exercise, Workout
@@ -29,18 +31,18 @@ public class WorkoutCreatorApp {
         muscleGroups = new ArrayList<>();
         defaultDays = new ArrayList<>();
         jsonReader = new JsonReader("data/JsonData/WorkoutAppData.json");
+        loadedFromFile = false;
 
 
         runApp();
     }
 
     //MODIFIES: this
-    //EFFECTS: loads saved data from file
-    private void load() throws IOException {
-        List<WorkoutPlan> loadedPlans = jsonReader.read();
+    //EFFECTS: loads workout plans to plans
+    private void load(List<WorkoutPlan> loadedPlans) throws IOException {
         for (WorkoutPlan wp : loadedPlans) {
             plans.add(wp);
-            System.out.println("loaded " + wp.getName() + "from memory");
+            System.out.println("loaded " + wp.getName() + " from memory");
         }
 
 
@@ -56,7 +58,8 @@ public class WorkoutCreatorApp {
         String command = null;
 
         init();
-        load();
+        queryLoad();
+
 
         //NOTE: extracted from teller app
         while (keepGoing) {
@@ -65,6 +68,7 @@ public class WorkoutCreatorApp {
             command = command.toLowerCase();
 
             if (command.equals("q")) {
+                querySave();
                 keepGoing = false;
             } else {
                 processCommand(command);
@@ -73,6 +77,50 @@ public class WorkoutCreatorApp {
 
         System.out.println("\nGoodbye!");
 
+
+    }
+
+    private void querySave() {
+        System.out.println("Save Changes to file?");
+        System.out.print("y/n: ");
+
+        String command = input.next();
+        command = command.toLowerCase();
+
+        if (command.equals("y")) {
+            save();
+        } else if (!command.equals("n")) {
+            querySave();
+        }
+    }
+
+    private void queryLoad() {
+        try {
+            List<WorkoutPlan> loadedPlans = jsonReader.read();
+            if (!loadedPlans.isEmpty()) {
+                System.out.println("Would you like to load your saved plans from file?");
+                System.out.print("y/n: ");
+            } else {
+                System.out.println("No saved plans on file...");
+                return;
+            }
+
+            String command = input.next();
+            command = command.toLowerCase();
+
+            if (command.equals("y")) {
+                load(loadedPlans);
+                loadedFromFile = true;
+            } else if (command.equals("n")) {
+                return;
+            } else {
+                queryLoad();
+            }
+        } catch (IOException e) {
+            System.out.println("could not locate save file...");
+            return;
+
+        }
 
     }
 
@@ -97,6 +145,40 @@ public class WorkoutCreatorApp {
         } else if (command.equals("l")) {
             loadPlans();
         }
+    }
+
+    //MODIFIES: WorkoutAppData.json
+    //EFFECTS: saves all workout plans to file
+    private void save() {
+        if (loadedFromFile) {
+            jsonWriter = new JsonWriter("data/JsonData/WorkoutAppData.json");
+            try {
+                jsonWriter.open();
+                jsonWriter.close();
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        for (WorkoutPlan plan : plans) {
+            saveToFile(plan);
+        }
+    }
+
+
+    //MODIFIES: WorkoutAppData.json
+    //EFFECTS: saves workoutPlan to file
+    private void saveToFile(WorkoutPlan wp) {
+
+        jsonWriter = new JsonWriter("data/JsonData/WorkoutAppData.json");
+        try {
+            String file = JsonReader.readFile("data/JsonData/WorkoutAppData.json");
+            jsonWriter.open();
+            jsonWriter.write(wp, file);
+            jsonWriter.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     //EFFECTS: loads created plans
