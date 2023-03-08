@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistance.Writable;
+
 // An exercise with a name, and a number of reps and sets, as well as a Pr
-public class Exercise {
+public class Exercise implements Writable {
     private String name;
     private int reps;
     private int sets;
@@ -47,5 +50,16 @@ public class Exercise {
 
     public void setSets(int sets) {
         this.sets = sets;
+    }
+
+    @Override
+    //EFFECTS: converts Exercise to JsonObject
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("pr", pr);
+        json.put("reps", reps);
+        json.put("sets", sets);
+        return json;
     }
 }

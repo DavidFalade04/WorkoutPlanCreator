@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistance.Writable;
+
 // A Day in a weekly workout plan
-public class Day {
+public class Day implements Writable {
     private final String name;
     private String status;
     private Workout workout;
@@ -43,5 +46,21 @@ public class Day {
     public Workout getWorkout() {
 
         return workout;
+    }
+
+    @Override
+    //EFFECTS: converts Day to JsonObject
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("status", status);
+        if (workout != null) {
+            json.put("workout", workout.toJson());
+        } else {
+            json.put("workout", "null");
+
+        }
+
+        return json;
     }
 }

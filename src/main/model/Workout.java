@@ -1,13 +1,17 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistance.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 // A workout that can be filled with exercises
-public class Workout {
+public class Workout implements Writable {
 
     private String workoutGoal;
-    private List exercises;
+    private List<Exercise> exercises;
 
 
     //EFFECTS: initializes exercises with an empty list of exercises
@@ -43,5 +47,23 @@ public class Workout {
 
     public String getWorkoutGoal() {
         return workoutGoal;
+    }
+
+    @Override
+    //EFFECTS: converts Workout to JsonObject
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("workout goal", workoutGoal);
+        json.put("exercises", exercisesToJsonArray());
+        return json;
+    }
+
+    //EFFECTS: converts List<Exercises> exercises to JsonArray
+    private JSONArray exercisesToJsonArray() {
+        JSONArray jsonArray = new JSONArray();
+        for (Exercise e : exercises) {
+            jsonArray.put(e.toJson());
+        }
+        return jsonArray;
     }
 }

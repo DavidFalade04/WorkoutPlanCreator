@@ -1,5 +1,6 @@
 package model;
 
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -56,6 +57,23 @@ public class DayTest {
     monday.setStatus("legs");
     assertEquals("legs", monday.getStatus());
 
+    }
+
+    @Test
+    public void DayToJsonTest() {
+        monday.setWorkout(cardio);
+        JSONObject json = monday.toJson();
+        assertEquals("monday", json.get("name"));
+        assertEquals("rest", json.get("status"));
+        assertNotEquals(null ,json.get("workout"));
+    }
+
+    @Test
+    public void DayWithNullWorkoutToJsonTest() {
+        JSONObject json = monday.toJson();
+        assertEquals("monday", json.get("name"));
+        assertEquals("rest", json.get("status"));
+        assertEquals("null" ,json.get("workout"));
     }
 
 }

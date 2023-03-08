@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-//Note: large portion from JsonSerializationDemo
+//Note: file structure derived from JsonSerializationDemo
 // Represents a reader that reads workroom from JSON data stored in file
 public class JsonReader {
     private String source;
@@ -49,7 +49,7 @@ public class JsonReader {
     }
 
     // EFFECTS: reads source file as string and returns it
-    private String readFile(String source) throws IOException {
+    public static String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();
 
         try (Stream<String> stream = Files.lines(Paths.get(source), StandardCharsets.UTF_8)) {

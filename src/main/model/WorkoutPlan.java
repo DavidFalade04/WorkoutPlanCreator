@@ -1,10 +1,14 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistance.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 // A weekly workout plan that outlines what day workouts are on, are what days are rest days
-public class WorkoutPlan {
+public class WorkoutPlan implements Writable {
 
     private String name;
     private List<Day> days;
@@ -50,4 +54,24 @@ public class WorkoutPlan {
         return name;
     }
 
+    @Override
+    //EFFECTS: converts WorkoutPlan to JsonObject
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("days", daysToJsonArray());
+
+        return json;
+    }
+
+    //EFFECTS: converts the days into a JsonArray
+    private JSONArray daysToJsonArray() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Day d : days) {
+            jsonArray.put(d.toJson());
+        }
+
+        return jsonArray;
+    }
 }
