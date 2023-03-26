@@ -21,6 +21,7 @@ public class WorkoutWorkshopFrame extends AppFrame implements ActionListener {
     JButton addExercise;
     JButton removeExercise;
     JButton editExercise;
+    JButton back;
 
 
     JPanel body;
@@ -34,8 +35,7 @@ public class WorkoutWorkshopFrame extends AppFrame implements ActionListener {
     //MODIFIES: this
     //EFFECTS: creates frame and loads workout from day
     public WorkoutWorkshopFrame(JFrame caller, WorkoutCreatorAppGui app, Day day) {
-        super("Workout Workshop");
-        caller.dispose();
+        super("Workout Workshop", caller);
         this.workout = day.getWorkout();
         init(app, day);
     }
@@ -43,8 +43,7 @@ public class WorkoutWorkshopFrame extends AppFrame implements ActionListener {
     //MODIFIES: this, day
     //EFFECTS: creates frame and creates a new workout adding it to day
     public WorkoutWorkshopFrame(JFrame caller, WorkoutCreatorAppGui app, Day day, String name) {
-        super("Workout Workshop");
-        caller.dispose();
+        super("Workout Workshop", caller);
         this.workout = new Workout(name);
         day.setWorkout(workout);
         init(app, day);
@@ -59,6 +58,9 @@ public class WorkoutWorkshopFrame extends AppFrame implements ActionListener {
         body = new JPanel();
         updateStats();
         this.add(body);
+        back = new JButton("back");
+        back.addActionListener(this);
+        this.add(back, BorderLayout.SOUTH);
         initOptions();
         initChangeName();
         update(options);
@@ -127,6 +129,9 @@ public class WorkoutWorkshopFrame extends AppFrame implements ActionListener {
         }
         if (e.getSource() == editExercise) {
             new EditExerciseFrame(this, app, day);
+        }
+        if (e.getSource() == back) {
+            new DayViewerFrame(this, app, day);
         }
     }
 

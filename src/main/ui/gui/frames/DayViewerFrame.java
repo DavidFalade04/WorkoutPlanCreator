@@ -16,6 +16,7 @@ public class DayViewerFrame extends AppFrame implements ActionListener {
     Day day;
 
     JButton set;
+    JButton edit;
     JButton view;
 
     JLayeredPane layers;
@@ -23,13 +24,13 @@ public class DayViewerFrame extends AppFrame implements ActionListener {
     JPanel input;
 
     JButton create;
+    JButton back;
     JTextField inputText;
 
     //MODIFIES: this
     //EFFECTS: creates frame
     public DayViewerFrame(JFrame caller, WorkoutCreatorAppGui app, Day day) {
-        super("Viewing " + day.getName());
-        caller.dispose();
+        super("Viewing " + day.getName(), caller);
         this.app = app;
         this.day = day;
         JPanel desc = new JPanel();
@@ -51,6 +52,9 @@ public class DayViewerFrame extends AppFrame implements ActionListener {
         layers.setBounds(0,0,500,500);
         layers.add(body);
 
+        back = new JButton("back");
+        back.addActionListener(this);
+        this.add(back, BorderLayout.SOUTH);
         createButtons(desc, body);
 
 
@@ -61,13 +65,19 @@ public class DayViewerFrame extends AppFrame implements ActionListener {
     //MODIFIES: this
     //EFFECTS: creates buttons
     private void createButtons(JPanel desc, JPanel body) {
-        set = new AppButton("Set Workout");
-        set.addActionListener(this);
+        body.add(desc);
+        if (day.getWorkout() == null) {
+            set = new AppButton("Set Workout");
+            set.addActionListener(this);
+            body.add(set);
+        } else {
+            edit = new AppButton("Edit Workout");
+            edit.addActionListener(this);
+            body.add(edit);
+        }
+
         view = new AppButton("View exercises");
         view.addActionListener(this);
-
-        body.add(desc);
-        body.add(set);
         body.add(view);
     }
 
@@ -79,6 +89,15 @@ public class DayViewerFrame extends AppFrame implements ActionListener {
         if (e.getSource() == set) {
             new SetFrame(this, app, day);
             //new WorkoutWorkshopFrame(this, app, day);
+        }
+        if (e.getSource() == view) {
+            new WorkoutViewer(this, app, day);
+        }
+        if (e.getSource() == edit) {
+            new WorkoutWorkshopFrame(this, app, day);
+        }
+        if (e.getSource() == back) {
+            new PlanViewerFrame(this, app, app.getCurrentWorkoutPlan());
         }
 
     }

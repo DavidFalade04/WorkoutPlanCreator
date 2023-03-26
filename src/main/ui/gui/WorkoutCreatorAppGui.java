@@ -7,12 +7,14 @@ import ui.gui.frames.IndexFrame;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 // user interface of workout creator app
 public class WorkoutCreatorAppGui {
+
     private List<WorkoutPlan> plans;
     private List<MuscleGroup> muscleGroups;
     private List<String> dayNames;
@@ -22,6 +24,7 @@ public class WorkoutCreatorAppGui {
     private JsonReader jsonReader;
     private JsonWriter jsonWriter;
     private Boolean loadedFromFile;
+    private WorkoutPlan currentWorkoutPlan;
 
 
     //EFFECTS: initializes data and starts app
@@ -32,7 +35,7 @@ public class WorkoutCreatorAppGui {
         jsonReader = new JsonReader("data/JsonData/WorkoutAppData.json");
         loadedFromFile = false;
         init();
-        IndexFrame index = new IndexFrame(this);
+        IndexFrame index = new IndexFrame(this, null);
     }
 
     //MODIFIES: this
@@ -41,6 +44,7 @@ public class WorkoutCreatorAppGui {
         initDefaultDays();
         WorkoutPlan workoutplan = new WorkoutPlan(name, defaultDays);
         plans.add(workoutplan);
+        this.currentWorkoutPlan = workoutplan;
         return workoutplan;
     }
 
@@ -175,11 +179,65 @@ public class WorkoutCreatorAppGui {
         muscleGroup.populate(exercises);
     }
 
+    //MODIFIES: WorkoutAppData.json
+    //EFFECTS: saves all workout plans to file
+    public void save() {
+        if (loadedFromFile) {
+            jsonWriter = new JsonWriter("data/JsonData/WorkoutAppData.json");
+            try {
+                jsonWriter.open();
+                jsonWriter.close();
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        for (WorkoutPlan plan : plans) {
+            saveToFile(plan);
+        }
+    }
+
+    //MODIFIES: WorkoutAppData.json
+    //EFFECTS: saves workoutPlan to file
+    private void saveToFile(WorkoutPlan wp) {
+
+        jsonWriter = new JsonWriter("data/JsonData/WorkoutAppData.json");
+        try {
+            String file = JsonReader.readFile("data/JsonData/WorkoutAppData.json");
+            jsonWriter.open();
+            jsonWriter.write(wp, file);
+            jsonWriter.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
     public List<MuscleGroup> getMuscleGroups() {
 
         return this.muscleGroups;
     }
 
 
+    public WorkoutPlan getCurrentWorkoutPlan() {
+        return currentWorkoutPlan;
+    }
 
+    public List<WorkoutPlan> getPlans() {
+        return plans;
+    }
+
+    public void load() {
+        try {
+            List<WorkoutPlan> loadedPlans = jsonReader.read();
+            for (WorkoutPlan wp : loadedPlans) {
+                if (!plans.contains(wp)) {
+                    plans.add(wp);
+                    System.out.println("loaded " + wp.getName() + " from memory");
+                }
+                loadedFromFile = true;
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

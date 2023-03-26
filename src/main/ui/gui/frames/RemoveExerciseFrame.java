@@ -23,9 +23,8 @@ public class RemoveExerciseFrame  extends AppFrame implements ActionListener {
 
     //MODIFIES: this
     // EFFECTS: creates frame
-    public RemoveExerciseFrame(JFrame callee, WorkoutCreatorAppGui app, Day day) {
-        super("Remove Exercise");
-        callee.dispose();
+    public RemoveExerciseFrame(JFrame caller, WorkoutCreatorAppGui app, Day day) {
+        super("Remove Exercise", caller);
         this.app = app;
         this.day = day;
         body = new JPanel();

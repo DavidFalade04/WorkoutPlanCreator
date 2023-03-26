@@ -532,4 +532,100 @@
                 "status": "rest"
             }
         ]
-    }]
+    },
+    {
+        "name": "88",
+        "days": [
+            {
+                "workout": {
+                    "exercises": [{
+                        "pr": 0,
+                        "reps": 8,
+                        "sets": 3,
+                        "name": "Dumbbell Bench Press"
+                    }],
+                    "workout goal": "22"
+                },
+                "name": "monday",
+                "status": "rest"
+            },
+            {
+                "workout": {},
+                "name": "tuesday",
+                "status": "rest"
+            },
+            {
+                "workout": {},
+                "name": "wednesday",
+                "status": "rest"
+            },
+            {
+                "workout": {},
+                "name": "thursday",
+                "status": "rest"
+            },
+            {
+                "workout": {},
+                "name": "friday",
+                "status": "rest"
+            },
+            {
+                "workout": {},
+                "name": "saturday",
+                "status": "rest"
+            },
+            {
+                "workout": {},
+                "name": "sunday",
+                "status": "rest"
+            }
+        ]
+    }
+,{
+    "name": "88",
+    "days": [
+        {
+            "workout": {
+                "exercises": [{
+                    "pr": 0,
+                    "reps": 8,
+                    "sets": 3,
+                    "name": "Dumbbell Bench Press"
+                }],
+                "workout goal": "22"
+            },
+            "name": "monday",
+            "status": "rest"
+        },
+        {
+            "workout": {},
+            "name": "tuesday",
+            "status": "rest"
+        },
+        {
+            "workout": {},
+            "name": "wednesday",
+            "status": "rest"
+        },
+        {
+            "workout": {},
+            "name": "thursday",
+            "status": "rest"
+        },
+        {
+            "workout": {},
+            "name": "friday",
+            "status": "rest"
+        },
+        {
+            "workout": {},
+            "name": "saturday",
+            "status": "rest"
+        },
+        {
+            "workout": {},
+            "name": "sunday",
+            "status": "rest"
+        }
+    ]
+}]

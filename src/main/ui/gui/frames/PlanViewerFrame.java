@@ -36,14 +36,15 @@ public class PlanViewerFrame extends AppFrame implements ActionListener {
     JButton viewSat = new JButton("view");
     JButton viewSun = new JButton("view");
 
+    JButton back;
+
     WorkoutPlan workoutPlan;
     WorkoutCreatorAppGui app;
     
 
     //EFFECTS: creates frame and initializes fields
     public PlanViewerFrame(JFrame caller, WorkoutCreatorAppGui app, WorkoutPlan workoutPlan) {
-        super("Viewing " + workoutPlan.getName());
-        caller.dispose();
+        super("Viewing " + workoutPlan.getName(), caller);
 
         this.workoutPlan = workoutPlan;
         this.app = app;
@@ -64,6 +65,9 @@ public class PlanViewerFrame extends AppFrame implements ActionListener {
         body.add(saturdayPanel);
         body.add(sundayPanel);
 
+        back = new JButton("back");
+        back.addActionListener(this);
+        this.add(back, BorderLayout.SOUTH);
 
 
         this.add(body);
@@ -154,6 +158,8 @@ public class PlanViewerFrame extends AppFrame implements ActionListener {
             new DayViewerFrame(this, app, workoutPlan.getDay("saturday"));
         } else if (e.getSource() == viewSun) {
             new DayViewerFrame(this, app, workoutPlan.getDay("sunday"));
+        } else if (e.getSource() == back) {
+            new IndexFrame(app, this);
         }
     }
 }

@@ -21,9 +21,8 @@ public class EditExerciseFrame extends AppFrame implements ActionListener {
     JComboBox comboBox;
 
     //EFFECTS: creates frame
-    public EditExerciseFrame(JFrame callee, WorkoutCreatorAppGui app, Day day) {
-        super("Edit Exercise");
-        callee.dispose();
+    public EditExerciseFrame(JFrame caller, WorkoutCreatorAppGui app, Day day) {
+        super("Edit Exercise", caller);
         this.app = app;
         this.day = day;
         body = new JPanel();

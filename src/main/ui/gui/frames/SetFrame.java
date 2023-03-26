@@ -18,9 +18,8 @@ public class SetFrame extends AppFrame implements ActionListener {
 
     //MODIFIES: this
     //EFFECTS: creates frame
-    public SetFrame(JFrame callee, WorkoutCreatorAppGui app, Day day) {
-        super("setFrame");
-        callee.dispose();
+    public SetFrame(JFrame caller, WorkoutCreatorAppGui app, Day day) {
+        super("setFrame", caller);
 
         input = new JTextField("Enter Workout name");
         enter = new JButton("Create");

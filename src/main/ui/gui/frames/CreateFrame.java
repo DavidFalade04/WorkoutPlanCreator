@@ -23,11 +23,9 @@ public class CreateFrame extends AppFrame implements ActionListener {
     //MODIFIES: this
     //EFFECTS: creates frame
     public CreateFrame(JFrame caller, WorkoutCreatorAppGui app) {
-        super("WorkoutPlan Creator");
+        super("WorkoutPlan Creator", caller);
 
         this.app = app;
-        caller.dispose();
-
         this.setTitle("Create");
 
         JPanel queryPanel = new JPanel();

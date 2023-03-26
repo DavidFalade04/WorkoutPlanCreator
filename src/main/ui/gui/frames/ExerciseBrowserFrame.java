@@ -31,8 +31,7 @@ public class ExerciseBrowserFrame extends AppFrame implements ActionListener {
 
     //EFFECTS: creates frame
     public ExerciseBrowserFrame(JFrame caller, WorkoutCreatorAppGui app, Day day) {
-        super("Exercise Browser");
-        caller.dispose();
+        super("Exercise Browser", caller);
         this.app = app;
         this.day = day;
         browser();

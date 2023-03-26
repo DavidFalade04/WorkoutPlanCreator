@@ -24,9 +24,8 @@ public class ExerciseEditorFrame extends AppFrame implements ActionListener {
 
     //MODIFIES: this
     //EFFECTS: creates frame
-    public ExerciseEditorFrame(JFrame callee, WorkoutCreatorAppGui app, Day day, Exercise exercise) {
-        super("Exercise editor");
-        callee.dispose();
+    public ExerciseEditorFrame(JFrame caller, WorkoutCreatorAppGui app, Day day, Exercise exercise) {
+        super("Exercise editor", caller);
         this.app = app;
         this.day = day;
         this.exercise = exercise;
