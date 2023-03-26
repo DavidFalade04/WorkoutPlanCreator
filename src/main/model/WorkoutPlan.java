@@ -49,6 +49,9 @@ public class WorkoutPlan implements Writable {
         return null;
     }
 
+    public List<Day> getDays() {
+        return days;
+    }
 
     public String getName() {
         return name;

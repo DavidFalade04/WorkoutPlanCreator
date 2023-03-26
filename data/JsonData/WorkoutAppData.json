@@ -384,78 +384,152 @@
                 "status": "rest"
             }
         ]
-    }
-,{
-    "name": "brent",
-    "days": [
-        {
-            "workout": {
-                "exercises": [
-                    {
-                        "pr": 0,
-                        "reps": 10,
-                        "sets": 8,
-                        "name": "Kettlebell Swings"
-                    },
-                    {
-                        "pr": 0,
-                        "reps": 20,
-                        "sets": 6,
-                        "name": "\r\nBarbell Deadlift"
-                    },
-                    {
-                        "pr": 0,
-                        "reps": 19,
-                        "sets": 9,
-                        "name": "\r\nBarbell Bent-over Row"
-                    },
-                    {
-                        "pr": 0,
-                        "reps": 21,
-                        "sets": 80,
-                        "name": "\r\nPull-up"
-                    },
-                    {
-                        "pr": 0,
-                        "reps": 32,
-                        "sets": 65,
-                        "name": "\r\nDumbbell Single-arm Row"
-                    }
-                ],
-                "workout goal": "Back Breaker"
+    },
+    {
+        "name": "brent",
+        "days": [
+            {
+                "workout": {
+                    "exercises": [
+                        {
+                            "pr": 0,
+                            "reps": 10,
+                            "sets": 8,
+                            "name": "Kettlebell Swings"
+                        },
+                        {
+                            "pr": 0,
+                            "reps": 20,
+                            "sets": 6,
+                            "name": "\r\nBarbell Deadlift"
+                        },
+                        {
+                            "pr": 0,
+                            "reps": 19,
+                            "sets": 9,
+                            "name": "\r\nBarbell Bent-over Row"
+                        },
+                        {
+                            "pr": 0,
+                            "reps": 21,
+                            "sets": 80,
+                            "name": "\r\nPull-up"
+                        },
+                        {
+                            "pr": 0,
+                            "reps": 32,
+                            "sets": 65,
+                            "name": "\r\nDumbbell Single-arm Row"
+                        }
+                    ],
+                    "workout goal": "Back Breaker"
+                },
+                "name": "monday",
+                "status": "doing Back Breaker"
             },
-            "name": "monday",
-            "status": "doing Back Breaker"
-        },
-        {
-            "workout": {},
-            "name": "tuesday",
-            "status": "rest"
-        },
-        {
-            "workout": {},
-            "name": "wednesday",
-            "status": "rest"
-        },
-        {
-            "workout": {},
-            "name": "thursday",
-            "status": "rest"
-        },
-        {
-            "workout": {},
-            "name": "friday",
-            "status": "rest"
-        },
-        {
-            "workout": {},
-            "name": "saturday",
-            "status": "rest"
-        },
-        {
-            "workout": {},
-            "name": "sunday",
-            "status": "rest"
-        }
-    ]
-}]
+            {
+                "workout": {},
+                "name": "tuesday",
+                "status": "rest"
+            },
+            {
+                "workout": {},
+                "name": "wednesday",
+                "status": "rest"
+            },
+            {
+                "workout": {},
+                "name": "thursday",
+                "status": "rest"
+            },
+            {
+                "workout": {},
+                "name": "friday",
+                "status": "rest"
+            },
+            {
+                "workout": {},
+                "name": "saturday",
+                "status": "rest"
+            },
+            {
+                "workout": {},
+                "name": "sunday",
+                "status": "rest"
+            }
+        ]
+    },
+    {
+        "name": "lab grading",
+        "days": [
+            {
+                "workout": {
+                    "exercises": [
+                        {
+                            "pr": 0,
+                            "reps": 10,
+                            "sets": 8,
+                            "name": "Kettlebell Swings"
+                        },
+                        {
+                            "pr": 0,
+                            "reps": 20,
+                            "sets": 6,
+                            "name": "\r\nBarbell Deadlift"
+                        },
+                        {
+                            "pr": 0,
+                            "reps": 19,
+                            "sets": 9,
+                            "name": "\r\nBarbell Bent-over Row"
+                        },
+                        {
+                            "pr": 0,
+                            "reps": 21,
+                            "sets": 80,
+                            "name": "\r\nPull-up"
+                        },
+                        {
+                            "pr": 0,
+                            "reps": 32,
+                            "sets": 65,
+                            "name": "\r\nDumbbell Single-arm Row"
+                        }
+                    ],
+                    "workout goal": "Back Breaker"
+                },
+                "name": "monday",
+                "status": "doing Back Breaker"
+            },
+            {
+                "workout": {},
+                "name": "tuesday",
+                "status": "rest"
+            },
+            {
+                "workout": {},
+                "name": "wednesday",
+                "status": "rest"
+            },
+            {
+                "workout": {},
+                "name": "thursday",
+                "status": "rest"
+            },
+            {
+                "workout": {},
+                "name": "friday",
+                "status": "rest"
+            },
+            {
+                "workout": {},
+                "name": "saturday",
+                "status": "rest"
+            },
+            {
+                "workout": {},
+                "name": "sunday",
+                "status": "rest"
+            }
+        ]
+    }]

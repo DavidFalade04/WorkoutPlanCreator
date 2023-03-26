@@ -53,6 +53,7 @@ public class WorkoutPlanTest {
         assertEquals(friday, myPlan.getDay("friday"));
         assertEquals(saturday, myPlan.getDay("saturday"));
         assertEquals(sunday, myPlan.getDay("sunday"));
+        assertEquals(7, myPlan.getDays().size());
 
 
 
