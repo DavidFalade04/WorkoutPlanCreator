@@ -22,8 +22,8 @@ public class WorkoutViewer extends AppFrame implements ActionListener {
     public WorkoutViewer(JFrame caller, WorkoutCreatorAppGui app, Day day) {
         super("workout viewer", caller);
         body = new JPanel();
+        body.setLayout(new BoxLayout(body,BoxLayout.Y_AXIS));
         body.setMaximumSize(new Dimension(this.getWidth(), this.getHeight()));
-        body.setLayout(new GridLayout(9,1));
         this.day = day;
         this.app = app;
         if (day.getWorkout() != null) {
@@ -52,7 +52,7 @@ public class WorkoutViewer extends AppFrame implements ActionListener {
             body.add(exercisePanel);
         }
         JScrollPane scrollPane = new JScrollPane(body,
-                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         this.add(scrollPane);
     }
