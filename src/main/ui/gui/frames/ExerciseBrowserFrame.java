@@ -80,6 +80,8 @@ public class ExerciseBrowserFrame extends AppFrame implements ActionListener {
         }
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates panel for selecting exercises from muscle group
     private void selector(int index) {
         exercises = app.getMuscleGroups().get(index).getExercises();
         JPanel selectPanel = new JPanel();

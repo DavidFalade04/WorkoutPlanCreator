@@ -113,19 +113,12 @@ public class PlanViewerFrame extends AppFrame implements ActionListener {
     //EFFECTS: creates day panels
     private void createDayPanels() {
         mondayPanel = new JPanel();
-        mondayPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
         tuesdayPanel = new JPanel();
-        tuesdayPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
         wednesdayPanel = new JPanel();
-        wednesdayPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
         thursdayPanel = new JPanel();
-        thursdayPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
         fridayPanel = new JPanel();
-        fridayPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
         saturdayPanel = new JPanel();
-        saturdayPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
         sundayPanel = new JPanel();
-        sundayPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
     }
 
     //MODIFIES: this

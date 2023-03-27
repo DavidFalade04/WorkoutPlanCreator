@@ -18,6 +18,8 @@ public class LoadFrame extends AppFrame implements ActionListener {
     JComboBox comboBox;
     JButton back;
 
+    //MODIFIES: this
+    //EFFECTS: creates Frame
     public LoadFrame(JFrame caller, WorkoutCreatorAppGui app) {
         super("Load plans", caller);
         this.app = app;
@@ -31,6 +33,8 @@ public class LoadFrame extends AppFrame implements ActionListener {
 
     }
 
+    //MODIFIES: this
+    //EFFECTS: initializes frame
     private void load() {
         body = new JPanel();
         comboBox();
@@ -40,6 +44,8 @@ public class LoadFrame extends AppFrame implements ActionListener {
 
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates comboBox
     private void comboBox() {
         List<WorkoutPlan> plans = app.getPlans();
         List<String> planNames = new ArrayList<>();

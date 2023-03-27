@@ -197,6 +197,23 @@ public class WorkoutCreatorAppGui {
         }
     }
 
+    //MODIFIES: this
+    //EFFECTS: loads workout plans from file
+    public void load() {
+        try {
+            List<WorkoutPlan> loadedPlans = jsonReader.read();
+            for (WorkoutPlan wp : loadedPlans) {
+                if (!plans.contains(wp)) {
+                    plans.add(wp);
+                    System.out.println("loaded " + wp.getName() + " from memory");
+                }
+                loadedFromFile = true;
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     //MODIFIES: WorkoutAppData.json
     //EFFECTS: saves workoutPlan to file
     private void saveToFile(WorkoutPlan wp) {
@@ -218,7 +235,6 @@ public class WorkoutCreatorAppGui {
         return this.muscleGroups;
     }
 
-
     public WorkoutPlan getCurrentWorkoutPlan() {
         return currentWorkoutPlan;
     }
@@ -232,19 +248,5 @@ public class WorkoutCreatorAppGui {
         return plans;
     }
 
-    public void load() {
-        try {
-            List<WorkoutPlan> loadedPlans = jsonReader.read();
-            for (WorkoutPlan wp : loadedPlans) {
-                if (!plans.contains(wp)) {
-                    plans.add(wp);
-                    System.out.println("loaded " + wp.getName() + " from memory");
-                }
-                loadedFromFile = true;
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
 }

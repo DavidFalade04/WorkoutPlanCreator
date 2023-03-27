@@ -58,6 +58,7 @@ public class DayViewerFrame extends AppFrame implements ActionListener {
 
     }
 
+    //MODIFIES: this
     //EFFECTS: creates back button
     private void back(JPanel desc) {
         back = new JButton("back");

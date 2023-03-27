@@ -27,4 +27,36 @@ i'm trying to get into working out more.
 - As a user I want to be able to choose to save my new plans and changes to file before I quit
 - As a user, when I start the application, I want to be given the option to load my created workout plans from file.
 
+# Instructions for Grader
+- You can generate the first required action related to adding Xs to a Y by...
+  1. Creating or loading a workout plan by 
+      - clicking on **Create new Plan**, typing the name and clicking create
+      - clicking on **load saved Plans**, and selecting a plan from the dropdown menu
+  2. Once your on the Plan viewer screen select a day to view by clicking on a view button
+  3. Once your on the Day viewer screen, click on **set workout** if one isn't already set and enter a name then click **create** 
+     or **edit Workout** if there's already been one set
+
+
+- You can generate the second required action related to adding Xs to a Y by...
+  1. By clicking on **add exercise**
+  2. This brings us to the exercise browser screen, where we can click on which
+     muscle group we want the exercise to target
+  3. Finally, choose an exercise from the dropdown menu, choose the number of sets and reps you want and click submit
+
+- You can locate my visual component by...
+  1. Create or load a workout plan by
+      - clicking on **Create new Plan**, typing the name and clicking create
+      - clicking on **load saved Plans**, and selecting a plan from the dropdown menu
+  2. Once your on the Plan viewer screen select a day to view by clicking on a view button
+  3. Once your on the Day viewer screen, click on **set workout** if one isn't already set and enter a name then click **create**
+     or **edit Workout** if there's already been one set
+  4. Once your on the Workout Workshop screen, we can add a exercise to the workout by clicking on **add exercise**
+  5. This brings us to the exercise browser screen, where we have Visual images to represent the different muscleGroups you can pick from
+
+- You can save the state of my application by...
+  1. On the main menu screen, click **disk save**
+
+- You can reload the state of my application by...
+  1. On the main menu screen click **disk load**
+
 
