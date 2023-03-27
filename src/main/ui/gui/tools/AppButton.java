@@ -8,7 +8,7 @@ public class AppButton extends JButton {
 
     //MODIFIES: this
     //EFFECTS: standard button for app
-    public AppButton (String text) {
+    public AppButton(String text) {
         super(text);
         super.setBackground(Color.white);
         super.setFocusable(false);
@@ -17,7 +17,7 @@ public class AppButton extends JButton {
 
     //MODIFIES: this
     //EFFECTS: standard button for app
-    public AppButton (Icon icon) {
+    public AppButton(Icon icon) {
         super(icon);
         super.setBackground(Color.white);
         super.setFocusable(false);
