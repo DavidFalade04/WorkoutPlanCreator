@@ -40,13 +40,13 @@ public class ExerciseBrowserFrame extends AppFrame implements ActionListener {
     //MODIFIES: this
     //EFFECTS: initializes components of frame
     private void browser() {
-        back = new AppButton("back");
+        back = new AppButton(new ImageIcon("data/Images/backmuscles.jpg"));
         back.addActionListener(this);
-        chest = new AppButton("chest");
+        chest = new AppButton(new ImageIcon("data/Images/chestmuscle.jpg"));
         chest.addActionListener(this);
-        leg = new AppButton("leg");
+        leg = new AppButton(new ImageIcon("data/Images/legmuscle.jpg"));
         leg.addActionListener(this);
-        shoulder = new AppButton("shoulder");
+        shoulder = new AppButton(new ImageIcon("data/Images/shoulders.jpg"));
         shoulder.addActionListener(this);
         body = new JPanel();
         body.setLayout(new GridLayout(2,2));

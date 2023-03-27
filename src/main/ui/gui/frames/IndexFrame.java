@@ -52,6 +52,9 @@ public class IndexFrame extends AppFrame implements ActionListener {
 
     }
 
+
+    //MODIFIES: this
+    //EFFECT: creates buttons
     private void createButtons() {
         create = new AppButton("Create New Plan");
         load = new AppButton("Load Saved Plans");
