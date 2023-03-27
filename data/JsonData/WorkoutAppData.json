@@ -1,598 +1,131 @@
-[
-    {
-        "name": "David's Workout",
-        "days": [
-            {
-                "workout": {},
-                "name": "monday",
-                "status": "Leg day"
-            },
-            {
-                "workout": {
-                    "exercises": [
-                        {
-                            "pr": 2,
-                            "reps": 44,
-                            "sets": 32,
-                            "name": "squats "
-                        },
-                        {
-                            "pr": 3,
-                            "reps": 55,
-                            "sets": 66,
-                            "name": "pull ups "
-                        }
-                    ],
-                    "workout goal": "back"
-                },
-                "name": "tuesday",
-                "status": "back day"
-            },
-            {
-                "workout": {
-                    "exercises": [
-                        {
-                            "pr": 2,
-                            "reps": 44,
-                            "sets": 32,
-                            "name": "squats "
-                        },
-                        {
-                            "pr": 3,
-                            "reps": 55,
-                            "sets": 66,
-                            "name": "pull ups "
-                        }
-                    ],
-                    "workout goal": "back"
-                },
-                "name": "wednesday",
-                "status": "back day"
-            },
-            {
-                "workout": {
-                    "exercises": [
-                        {
-                            "pr": 2,
-                            "reps": 44,
-                            "sets": 32,
-                            "name": "squats "
-                        },
-                        {
-                            "pr": 3,
-                            "reps": 55,
-                            "sets": 66,
-                            "name": "pull ups "
-                        }
-                    ],
-                    "workout goal": "back"
-                },
-                "name": "thursday",
-                "status": "back day"
-            },
-            {
-                "workout": {
-                    "exercises": [
-                        {
-                            "pr": 2,
-                            "reps": 44,
-                            "sets": 32,
-                            "name": "squats "
-                        },
-                        {
-                            "pr": 3,
-                            "reps": 55,
-                            "sets": 66,
-                            "name": "pull ups "
-                        }
-                    ],
-                    "workout goal": "back"
-                },
-                "name": "friday",
-                "status": "back day"
-            },
-            {
-                "workout": {
-                    "exercises": [
-                        {
-                            "pr": 2,
-                            "reps": 44,
-                            "sets": 32,
-                            "name": "squats "
-                        },
-                        {
-                            "pr": 3,
-                            "reps": 55,
-                            "sets": 66,
-                            "name": "pull ups "
-                        }
-                    ],
-                    "workout goal": "back"
-                },
-                "name": "saturday",
-                "status": "back day"
-            },
-            {
-                "workout": {
-                    "exercises": [
-                        {
-                            "pr": 2,
-                            "reps": 44,
-                            "sets": 32,
-                            "name": "squats "
-                        },
-                        {
-                            "pr": 3,
-                            "reps": 55,
-                            "sets": 66,
-                            "name": "pull ups "
-                        }
-                    ],
-                    "workout goal": "back"
-                },
-                "name": "sunday",
-                "status": "back day"
-            }
-        ]
-    },
-    {
-        "name": "David's Workout",
-        "days": [
-            {
-                "workout": {},
-                "name": "monday",
-                "status": "Leg day"
-            },
-            {
-                "workout": {
-                    "exercises": [
-                        {
-                            "pr": 2,
-                            "reps": 44,
-                            "sets": 32,
-                            "name": "squats "
-                        },
-                        {
-                            "pr": 3,
-                            "reps": 55,
-                            "sets": 66,
-                            "name": "pull ups "
-                        }
-                    ],
-                    "workout goal": "back"
-                },
-                "name": "tuesday",
-                "status": "back day"
-            },
-            {
-                "workout": {
-                    "exercises": [
-                        {
-                            "pr": 2,
-                            "reps": 44,
-                            "sets": 32,
-                            "name": "squats "
-                        },
-                        {
-                            "pr": 3,
-                            "reps": 55,
-                            "sets": 66,
-                            "name": "pull ups "
-                        }
-                    ],
-                    "workout goal": "back"
-                },
-                "name": "wednesday",
-                "status": "back day"
-            },
-            {
-                "workout": {
-                    "exercises": [
-                        {
-                            "pr": 2,
-                            "reps": 44,
-                            "sets": 32,
-                            "name": "squats "
-                        },
-                        {
-                            "pr": 3,
-                            "reps": 55,
-                            "sets": 66,
-                            "name": "pull ups "
-                        }
-                    ],
-                    "workout goal": "back"
-                },
-                "name": "thursday",
-                "status": "back day"
-            },
-            {
-                "workout": {
-                    "exercises": [
-                        {
-                            "pr": 2,
-                            "reps": 44,
-                            "sets": 32,
-                            "name": "squats "
-                        },
-                        {
-                            "pr": 3,
-                            "reps": 55,
-                            "sets": 66,
-                            "name": "pull ups "
-                        }
-                    ],
-                    "workout goal": "back"
-                },
-                "name": "friday",
-                "status": "back day"
-            },
-            {
-                "workout": {
-                    "exercises": [
-                        {
-                            "pr": 2,
-                            "reps": 44,
-                            "sets": 32,
-                            "name": "squats "
-                        },
-                        {
-                            "pr": 3,
-                            "reps": 55,
-                            "sets": 66,
-                            "name": "pull ups "
-                        }
-                    ],
-                    "workout goal": "back"
-                },
-                "name": "saturday",
-                "status": "back day"
-            },
-            {
-                "workout": {
-                    "exercises": [
-                        {
-                            "pr": 2,
-                            "reps": 44,
-                            "sets": 32,
-                            "name": "squats "
-                        },
-                        {
-                            "pr": 3,
-                            "reps": 55,
-                            "sets": 66,
-                            "name": "pull ups "
-                        }
-                    ],
-                    "workout goal": "back"
-                },
-                "name": "sunday",
-                "status": "back day"
-            }
-        ]
-    },
-    {
-        "name": "oogum boogom",
-        "days": [
-            {
-                "workout": {},
-                "name": "monday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "tuesday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "wednesday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "thursday",
-                "status": "rest"
-            },
-            {
-                "workout": {
-                    "exercises": [
-                        {
-                            "pr": 0,
-                            "reps": 10,
-                            "sets": 8,
-                            "name": "Kettlebell Swings"
-                        },
-                        {
-                            "pr": 0,
-                            "reps": 20,
-                            "sets": 6,
-                            "name": "\r\nBarbell Deadlift"
-                        },
-                        {
-                            "pr": 0,
-                            "reps": 19,
-                            "sets": 9,
-                            "name": "\r\nBarbell Bent-over Row"
-                        },
-                        {
-                            "pr": 0,
-                            "reps": 21,
-                            "sets": 80,
-                            "name": "\r\nPull-up"
-                        },
-                        {
-                            "pr": 0,
-                            "reps": 32,
-                            "sets": 65,
-                            "name": "\r\nDumbbell Single-arm Row"
-                        }
-                    ],
-                    "workout goal": "Back Breaker"
-                },
-                "name": "friday",
-                "status": "doing Back Breaker"
-            },
-            {
-                "workout": {},
-                "name": "saturday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "sunday",
-                "status": "rest"
-            }
-        ]
-    },
-    {
-        "name": "hippidty",
-        "days": [
-            {
-                "workout": {},
-                "name": "monday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "tuesday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "wednesday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "thursday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "friday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "saturday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "sunday",
-                "status": "rest"
-            }
-        ]
-    },
-    {
-        "name": "brent",
-        "days": [
-            {
-                "workout": {
-                    "exercises": [
-                        {
-                            "pr": 0,
-                            "reps": 10,
-                            "sets": 8,
-                            "name": "Kettlebell Swings"
-                        },
-                        {
-                            "pr": 0,
-                            "reps": 20,
-                            "sets": 6,
-                            "name": "\r\nBarbell Deadlift"
-                        },
-                        {
-                            "pr": 0,
-                            "reps": 19,
-                            "sets": 9,
-                            "name": "\r\nBarbell Bent-over Row"
-                        },
-                        {
-                            "pr": 0,
-                            "reps": 21,
-                            "sets": 80,
-                            "name": "\r\nPull-up"
-                        },
-                        {
-                            "pr": 0,
-                            "reps": 32,
-                            "sets": 65,
-                            "name": "\r\nDumbbell Single-arm Row"
-                        }
-                    ],
-                    "workout goal": "Back Breaker"
-                },
-                "name": "monday",
-                "status": "doing Back Breaker"
-            },
-            {
-                "workout": {},
-                "name": "tuesday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "wednesday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "thursday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "friday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "saturday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "sunday",
-                "status": "rest"
-            }
-        ]
-    },
-    {
-        "name": "lab grading",
-        "days": [
-            {
-                "workout": {
-                    "exercises": [
-                        {
-                            "pr": 0,
-                            "reps": 10,
-                            "sets": 8,
-                            "name": "Kettlebell Swings"
-                        },
-                        {
-                            "pr": 0,
-                            "reps": 20,
-                            "sets": 6,
-                            "name": "\r\nBarbell Deadlift"
-                        },
-                        {
-                            "pr": 0,
-                            "reps": 19,
-                            "sets": 9,
-                            "name": "\r\nBarbell Bent-over Row"
-                        },
-                        {
-                            "pr": 0,
-                            "reps": 21,
-                            "sets": 80,
-                            "name": "\r\nPull-up"
-                        },
-                        {
-                            "pr": 0,
-                            "reps": 32,
-                            "sets": 65,
-                            "name": "\r\nDumbbell Single-arm Row"
-                        }
-                    ],
-                    "workout goal": "Back Breaker"
-                },
-                "name": "monday",
-                "status": "doing Back Breaker"
-            },
-            {
-                "workout": {},
-                "name": "tuesday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "wednesday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "thursday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "friday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "saturday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "sunday",
-                "status": "rest"
-            }
-        ]
-    },
-    {
-        "name": "88",
-        "days": [
-            {
-                "workout": {
-                    "exercises": [{
-                        "pr": 0,
-                        "reps": 8,
-                        "sets": 3,
-                        "name": "Dumbbell Bench Press"
-                    }],
-                    "workout goal": "22"
-                },
-                "name": "monday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "tuesday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "wednesday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "thursday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "friday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "saturday",
-                "status": "rest"
-            },
-            {
-                "workout": {},
-                "name": "sunday",
-                "status": "rest"
-            }
-        ]
-    }
-,{
-    "name": "88",
+[{
+    "name": "oogum",
     "days": [
         {
             "workout": {
-                "exercises": [{
-                    "pr": 0,
-                    "reps": 8,
-                    "sets": 3,
-                    "name": "Dumbbell Bench Press"
-                }],
-                "workout goal": "22"
+                "exercises": [
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    },
+                    {
+                        "pr": 0,
+                        "reps": 9,
+                        "sets": 8,
+                        "name": "push-ups"
+                    }
+                ],
+                "workout goal": "Enter Workout name"
             },
             "name": "monday",
             "status": "rest"

@@ -18,9 +18,11 @@ public class WorkoutViewer extends AppFrame implements ActionListener {
     JButton back;
     WorkoutCreatorAppGui app;
 
+    //EFFECTS: creates frame
     public WorkoutViewer(JFrame caller, WorkoutCreatorAppGui app, Day day) {
         super("workout viewer", caller);
         body = new JPanel();
+        body.setMaximumSize(new Dimension(this.getWidth(), this.getHeight()));
         body.setLayout(new GridLayout(9,1));
         this.day = day;
         this.app = app;
@@ -33,6 +35,7 @@ public class WorkoutViewer extends AppFrame implements ActionListener {
 
     }
 
+    //EFFECTS: initializes frame
     private void viewer() {
         back = new JButton("back");
         back.addActionListener(this);
@@ -55,6 +58,8 @@ public class WorkoutViewer extends AppFrame implements ActionListener {
     }
 
     @Override
+    //MODIFIES: this
+    //EFFECTS: computes user input
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == back) {
             new DayViewerFrame(this, app, day);

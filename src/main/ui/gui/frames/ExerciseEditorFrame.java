@@ -53,6 +53,7 @@ public class ExerciseEditorFrame extends AppFrame implements ActionListener {
         if (e.getSource() == button) {
             exercise.setSets(Integer.parseInt(sets.getText()));
             exercise.setReps(Integer.parseInt(reps.getText()));
+            day.getWorkout().remove(exercise);
             day.getWorkout().add(exercise);
             new WorkoutWorkshopFrame(this, app, day);
 

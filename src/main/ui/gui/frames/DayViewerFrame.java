@@ -47,19 +47,23 @@ public class DayViewerFrame extends AppFrame implements ActionListener {
         desc.setPreferredSize(new Dimension(500,100));
         body = new JPanel();
         body.setLayout(new GridLayout(3,1));
-
+        Box box = new Box(10);
         JLayeredPane layers = new JLayeredPane();
         layers.setBounds(0,0,500,500);
         layers.add(body);
 
-        back = new JButton("back");
-        back.addActionListener(this);
-        this.add(back, BorderLayout.SOUTH);
+        back(desc);
         createButtons(desc, body);
-
 
         this.add(body, BorderLayout.CENTER);
 
+    }
+
+    //EFFECTS: creates back button
+    private void back(JPanel desc) {
+        back = new JButton("back");
+        back.addActionListener(this);
+        this.add(back, BorderLayout.SOUTH);
     }
 
     //MODIFIES: this

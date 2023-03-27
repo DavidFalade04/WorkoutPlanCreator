@@ -59,7 +59,9 @@ public class LoadFrame extends AppFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == comboBox) {
             int index = comboBox.getSelectedIndex();
-            new PlanViewerFrame(this, app, app.getPlans().get(index));
+            WorkoutPlan currentWp = app.getPlans().get(index);
+            app.setCurrentWorkoutPlan(currentWp);
+            new PlanViewerFrame(this, app, currentWp);
         }
         if (e.getSource() == back) {
             new IndexFrame(app, this);

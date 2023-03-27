@@ -24,6 +24,7 @@ public class WorkoutCreatorAppGui {
     private JsonReader jsonReader;
     private JsonWriter jsonWriter;
     private Boolean loadedFromFile;
+
     private WorkoutPlan currentWorkoutPlan;
 
 
@@ -222,6 +223,11 @@ public class WorkoutCreatorAppGui {
         return currentWorkoutPlan;
     }
 
+    public void setCurrentWorkoutPlan(WorkoutPlan currentWorkoutPlan) {
+        this.currentWorkoutPlan = currentWorkoutPlan;
+    }
+
+
     public List<WorkoutPlan> getPlans() {
         return plans;
     }
@@ -240,4 +246,5 @@ public class WorkoutCreatorAppGui {
             throw new RuntimeException(e);
         }
     }
+
 }
