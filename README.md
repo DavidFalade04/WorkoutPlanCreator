@@ -59,4 +59,17 @@ i'm trying to get into working out more.
 - You can reload the state of my application by...
   1. On the main menu screen click **disk load**
 
-
+# Phase 4: Task 2
+- new Workout added
+- exercise added to workout
+- exercise's sets were changed
+- exercise reps were changed
+- exercise added to workout
+- exercise's sets were changed
+- exercise reps were changed
+- exercise removed from workout
+- exercise added to workout
+- exercise's sets were changed
+- exercise reps were changed
+- exercise removed from workout
+- exercise removed from workout

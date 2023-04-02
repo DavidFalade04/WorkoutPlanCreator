@@ -19,7 +19,6 @@ public class WorkoutCreatorAppGui {
     private List<MuscleGroup> muscleGroups;
     private List<String> dayNames;
     private List<Day> defaultDays;
-    private List<Workout> workoutTemplates;
     private Scanner input;
     private JsonReader jsonReader;
     private JsonWriter jsonWriter;
@@ -75,7 +74,8 @@ public class WorkoutCreatorAppGui {
     //EFFECTS: initializes workout creator app
     private void init() throws FileNotFoundException {
         initMuscleGroups();
-        initWorkoutTemplates();
+        // uncomment to add workout templates feature
+        //initWorkoutTemplates();
         initDefaultDays();
         //NOTE: extracted from teller app
         input = new Scanner(System.in);
@@ -99,11 +99,11 @@ public class WorkoutCreatorAppGui {
         setWorkout(pecPopper, "data/WorkoutTemplateExercises/PecPopper.csv");
         setWorkout(shoulderSlammer,"data/WorkoutTemplateExercises/Shoulder Slammer.csv");
 
-        workoutTemplates = new ArrayList<Workout>();
-        workoutTemplates.add(backBreaker);
-        workoutTemplates.add(legDay);
-        workoutTemplates.add(pecPopper);
-        workoutTemplates.add(shoulderSlammer);
+       // workoutTemplates = new ArrayList<Workout>();
+       // workoutTemplates.add(backBreaker);
+       // workoutTemplates.add(legDay);
+       // workoutTemplates.add(pecPopper);
+       // workoutTemplates.add(shoulderSlammer);
 
     }
 

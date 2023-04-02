@@ -161,4 +161,51 @@
             "status": "rest"
         }
     ]
+},{
+    "name": "Workout name",
+    "days": [
+        {
+            "workout": {
+                "exercises": [{
+                    "pr": 0,
+                    "reps": 9,
+                    "sets": 8,
+                    "name": "Hack Squat"
+                }],
+                "workout goal": "Enter Workout name"
+            },
+            "name": "monday",
+            "status": "rest"
+        },
+        {
+            "workout": {},
+            "name": "tuesday",
+            "status": "rest"
+        },
+        {
+            "workout": {},
+            "name": "wednesday",
+            "status": "rest"
+        },
+        {
+            "workout": {},
+            "name": "thursday",
+            "status": "rest"
+        },
+        {
+            "workout": {},
+            "name": "friday",
+            "status": "rest"
+        },
+        {
+            "workout": {},
+            "name": "saturday",
+            "status": "rest"
+        },
+        {
+            "workout": {},
+            "name": "sunday",
+            "status": "rest"
+        }
+    ]
 }]

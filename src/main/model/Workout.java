@@ -26,6 +26,7 @@ public class Workout implements Writable {
     //EFFECTS: adds an exercise to list of exercises
     public void add(Exercise exercise) {
         this.exercises.add(exercise);
+        EventLog.getInstance().logEvent(new Event("exercise added to workout"));
     }
 
     //MODIFIES: this
@@ -39,6 +40,7 @@ public class Workout implements Writable {
     //EFFECTS: removes an exercise
     public void remove(Exercise exercise) {
         this.exercises.remove(exercise);
+        EventLog.getInstance().logEvent(new Event("exercise removed from workout"));
     }
 
     public List<Exercise> getExercises() {

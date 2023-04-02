@@ -20,7 +20,9 @@ public class Day implements Writable {
     //MODIFIES: this
     //EFFECTS: sets the day's workout
     public void setWorkout(Workout workout) {
+
         this.workout = workout;
+        EventLog.getInstance().logEvent(new Event("new Workout added"));
     }
 
 
@@ -28,6 +30,7 @@ public class Day implements Writable {
     //EFFECTS: removes workout
     public void removeWorkout() {
         this.workout = null;
+        EventLog.getInstance().logEvent(new Event("Workout removed"));
     }
 
 

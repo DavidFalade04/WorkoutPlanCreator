@@ -51,10 +51,12 @@ public class ExerciseEditorFrame extends AppFrame implements ActionListener {
     //EFFECTS: listens to user input
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button) {
+            if (day.getWorkout().getExercises().contains(exercise)) {
+                day.getWorkout().remove(exercise);
+            }
+            day.getWorkout().add(exercise);
             exercise.setSets(Integer.parseInt(sets.getText()));
             exercise.setReps(Integer.parseInt(reps.getText()));
-            day.getWorkout().remove(exercise);
-            day.getWorkout().add(exercise);
             new WorkoutWorkshopFrame(this, app, day);
 
         }

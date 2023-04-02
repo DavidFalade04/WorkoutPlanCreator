@@ -42,6 +42,7 @@ public class Exercise implements Writable {
 
     public void setReps(int reps) {
         this.reps = reps;
+        EventLog.getInstance().logEvent(new Event("exercise reps were changed"));
     }
 
     public int getSets() {
@@ -50,6 +51,7 @@ public class Exercise implements Writable {
 
     public void setSets(int sets) {
         this.sets = sets;
+        EventLog.getInstance().logEvent(new Event("exercise's sets were changed"));
     }
 
     @Override

@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 //Extension of JFrame class with default options for GUI frames
-public abstract class AppFrame extends JFrame {
+public class AppFrame extends JFrame {
 
     JFrame caller;
 

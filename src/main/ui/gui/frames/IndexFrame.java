@@ -1,5 +1,7 @@
 package ui.gui.frames;
 
+import model.Event;
+import model.EventLog;
 import ui.gui.WorkoutCreatorAppGui;
 import ui.gui.tools.AppButton;
 import ui.gui.tools.AppFrame;
@@ -10,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Iterator;
 
 // Index frame of app
 public class IndexFrame extends AppFrame implements ActionListener {
@@ -105,6 +108,14 @@ public class IndexFrame extends AppFrame implements ActionListener {
         }
         if (e.getSource() == quit) {
             this.dispose();
+            Iterator<Event> events = EventLog.getInstance().iterator();
+
+            for (Iterator<Event> it = events; it.hasNext(); ) {
+                Event event = it.next();
+                System.out.println(event.getDescription());
+
+
+            }
         }
     }
 }
