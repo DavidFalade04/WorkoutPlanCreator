@@ -16,8 +16,9 @@ import java.util.List;
 public class EditExerciseFrame extends AppFrame implements ActionListener {
     WorkoutCreatorAppGui app;
     Day day;
-    JPanel body;
     List<Exercise> exercises;
+
+    JPanel body;
     JComboBox comboBox;
 
     //EFFECTS: creates frame
