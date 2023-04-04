@@ -5,13 +5,13 @@ import java.util.Date;
 
 
 
-
+// an event in the program with the time it happened and a description
 public class Event {
     private static final int HASH_CONSTANT = 13;
     private Date dateLogged;
     private String description;
 
-
+//EFFECTS: constructs an event with the date it was logged and a description
     public Event(String description) {
         dateLogged = Calendar.getInstance().getTime();
         this.description = description;
@@ -26,6 +26,7 @@ public class Event {
     }
 
     @Override
+    //EFFECTS: determines if an object is equal to this
     public boolean equals(Object other) {
         if (other == null) {
             return false;
@@ -41,11 +42,13 @@ public class Event {
     }
 
     @Override
+    //EFFECTS: returns hashcode
     public int hashCode() {
         return (HASH_CONSTANT * dateLogged.hashCode() + description.hashCode());
     }
 
     @Override
+    //EFFECTS: returns date logged and description
     public String toString() {
         return dateLogged.toString() + "\n" + description;
     }
