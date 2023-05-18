@@ -73,3 +73,12 @@ i'm trying to get into working out more.
 - exercise reps were changed
 - exercise removed from workout
 - exercise removed from workout
+
+# Phase 4: Task 3
+
+Looking at my UML diagram, I would turn most of my frames into panels and just switch
+them in and out of one frame. Although making the new frames seemed like an easy choice at first, in the long run it was pretty 
+inefficient. I had to pass in the old frame to the new frame so the new one could close it. I would also implement my WorkoutAppGui using the 
+Singleton Method. I would do this because, all my frames had to have WorkoutAppGui as a field so it could pass it 
+to the next frame, to ensure they all used the same app. Another change I would make is getting rid of my MuscleGroup class because it could easily
+be replaced with a list of exercises. If I were to keep my MuscleGroup class, I would instead use the iterable using the iterator pattern.
